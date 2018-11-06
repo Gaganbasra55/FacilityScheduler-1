@@ -1,0 +1,1 @@
+﻿All domain class here.
