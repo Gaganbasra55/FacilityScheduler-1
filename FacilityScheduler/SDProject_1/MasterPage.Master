@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="SDProject_1.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Style/StyleSheet.css" rel ="stylesheet" type="text/css"/>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="mainPage">
+            <div id="wrapper">
+                </div>
+                <div id="forTime">
+                    <h3>Time:<asp:Label ID="timeAndDate" runat="server" Text="TimeAndDate"></asp:Label>
+                    </h3>
+                </div>
+                <div id="mediaConnection">
+                    <asp:ImageButton runat="server" ImageUrl="~/images/01FaceBook.gif" OnClick="MoveTofacebook" />&nbsp;
+                    <asp:ImageButton runat="server" ImageUrl="~/images/02twitter.gif" OnClick="MoveToTwitter" />&nbsp;
+                    <asp:ImageButton runat="server" ImageUrl="~/images/03Youtube.gif" OnClick="MoveToYoutube" />
+       
+                </div>
+                <div id="banner">
+                    <asp:Image Class="bImage" runat="server" ImageUrl="~/images/04ImageBanner.PNG" />
+                </div>
+                <div id="navigation">
+                    <ul class="nav">
+
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Home.aspx" >Home</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Facilities.aspx" >Facilities</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Contactus.aspx" >Contact</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Branches.aspx" >Branches</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/FacilitiesSecond.aspx" >Facility Second</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Management.aspx" >Management</asp:HyperLink></li> 
+                        
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Account/Login.aspx" >LOG IN</asp:HyperLink>                
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Account/Register.aspx" >Register</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~Pages/Account/ForgotPassword.aspx"></asp:HyperLink></li>
+                    
+                    </ul>
+                </div>
+                <div id="content">
+                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                            
+                                
+                             </asp:ContentPlaceHolder>
+                </div>
+
+        </div>
+    </form>
+</body>
+</html>
