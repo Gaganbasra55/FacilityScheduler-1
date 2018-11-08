@@ -32,10 +32,10 @@
                     <ul class="nav">
 
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Home.aspx" >Home</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Facilities.aspx" >Facilities</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Facilities/Facilities.aspx" >Facilities</asp:HyperLink></li>
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Contactus.aspx" >Contact</asp:HyperLink></li>
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Branches.aspx" >Branches</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/FacilitiesSecond.aspx" >Facility Second</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Facilities/FacilitiesSecond.aspx" >Facility Second</asp:HyperLink></li>
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Management.aspx" >Management</asp:HyperLink></li> 
                         
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Account/Login.aspx" >LOG IN</asp:HyperLink>                
