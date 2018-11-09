@@ -7,11 +7,12 @@
         <p>Welcome to our Login Page</p>
         <p>
              User Name: <br />
-        <asp:TextBox ID="textboxUserName" runat="server"></asp:TextBox> <br />
+        <asp:TextBox ID="textboxUserName" runat="server" OnTextChanged="textboxUserName_TextChanged" CssClass="textBox"></asp:TextBox> <br />
 
              Password: <br />
-        <asp:TextBox ID="textboxPassword" runat="server"></asp:TextBox><br />
-        <asp:Button ID="buttonLogin" runat="server" OnClick="buttonLogin_Click" Text="Log In" />
+        <asp:TextBox ID="textboxPassword" runat="server" CssClass="textBox" >
+        </asp:TextBox><br />
+        <asp:Button ID="buttonLogin" runat="server" OnClick="buttonLogin_Click" Text="Log In" CssClass="textBox"/>
     
         </p>
         <p>

@@ -28,5 +28,10 @@ namespace FacilityScheduler.Pages.Account
         {
             Response.Redirect("ForgotPassword.aspx");
         }
+
+        protected void textboxUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
