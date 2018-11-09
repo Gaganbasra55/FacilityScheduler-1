@@ -80,6 +80,7 @@
     <Content Include="Pages\Contactus.aspx" />
     <Content Include="Pages\Facilities\Facilities.aspx" />
     <Content Include="Pages\Facilities\FacilitiesSecond.aspx" />
+    <Content Include="Pages\Error.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Management.aspx" />
     <Content Include="Style\StyleSheet.css" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="Pages\Facilities\FacilitiesSecond.aspx.designer.cs">
       <DependentUpon>FacilitiesSecond.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

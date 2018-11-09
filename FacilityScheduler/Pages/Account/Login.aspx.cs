@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FacilityScheduler.Core.Controller;
+using FacilityScheduler.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +18,18 @@ namespace FacilityScheduler.Pages.Account
 
         protected void buttonLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Pages/Home.aspx");
+            User user = AuthenticationController.GetInstance().AuthenticateAndValidate(textboxUserName.Text, textboxPassword.Text);
+            if (user == null)
+            {
+                Response.Redirect("~/Pages/Error.aspx");
+            }
+            if (FacilityScheduler.Core.Models.User.Category.Admin == user.category)
+            {
+                Response.Redirect("~/Pages/Facilities/Facilities.aspx");
+            } else
+            {
+                Response.Redirect("~/Pages/Home.aspx");
+            }
         }
 
         protected void linkButtonRegisterNow_Click(object sender, EventArgs e)

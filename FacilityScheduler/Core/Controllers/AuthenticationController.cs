@@ -34,7 +34,7 @@ namespace FacilityScheduler.Core.Controller
             if (account == null && ExistsEmail(email))
             {
                //Needs to validate?
-               //Wrong credentials
+               //Wrong credentials               
             }
             return account;
         }
