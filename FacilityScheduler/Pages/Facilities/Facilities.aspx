@@ -38,6 +38,8 @@
     </asp:TableRow>
     
     </asp:table>
+
+	<asp:Button ID="addFacility" runat="server" OnClick="addFacility_Click" Text="Add Facility" CssClass="textBox"/>
     
   <%--
         A gridview if need   

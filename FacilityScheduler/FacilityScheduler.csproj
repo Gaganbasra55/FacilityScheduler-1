@@ -72,6 +72,7 @@
     <Content Include="images\02twitter.gif" />
     <Content Include="images\03Youtube.gif" />
     <Content Include="images\04ImageBanner.PNG" />
+    <Content Include="images\logo_fs.png" />
     <Content Include="Pages\Account\ForgotPassword.aspx" />
     <Content Include="Pages\Account\Login.aspx" />
     <Content Include="Pages\Account\Register.aspx" />

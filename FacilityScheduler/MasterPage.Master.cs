@@ -11,7 +11,7 @@ namespace FacilityScheduler
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            timeAndDate.Text = DateTime.Now.ToString();
+            //timeAndDate.Text = DateTime.Now.ToString();
         }
 
 

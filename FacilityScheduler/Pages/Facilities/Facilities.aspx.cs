@@ -13,5 +13,9 @@ namespace FacilityScheduler.Pages
         {
 
         }
+        protected void addFacility_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/Facilities/FacilitiesSecond.aspx");
+        }
     }
 }
