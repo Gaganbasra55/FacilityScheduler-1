@@ -28,6 +28,20 @@ namespace FacilityScheduler.Core.Controller
             UserDA = UserDA.GetInstance();
         }
 
-       
+        public User AuthenticateAndValidate(string email, string password)
+        {
+            User account = UserDA.RecoverUser(email, password);
+            if (account == null && ExistsEmail(email))
+            {
+               //Needs to validate?
+               //Wrong credentials
+            }
+            return account;
+        }
+
+        public bool ExistsEmail(string email)
+        {
+            return UserDA.ExistsEmail(email);
+        }
     }
 }

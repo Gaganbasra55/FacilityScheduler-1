@@ -75,19 +75,6 @@ namespace FacilityScheduler.Core.DA
             return obj;
         }
 
-        public bool Exists(string email)
-        {
-            bool exists = false;
-
-            SqlCommand command = new SqlCommand("select count(*) from pp_user where LOWER(useremail) = LOWER(@email);", connection);
-            command.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
-            command.Parameters["@email"].Value = email;
-            connection.Open();
-            exists = (int)command.ExecuteScalar() > 0;
-            connection.Close();
-            return exists;
-        }
-
         public void InsertUsingTransaction(SqlParameter[] parameters)
         {
             string par;

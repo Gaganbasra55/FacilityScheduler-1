@@ -18,7 +18,14 @@ namespace FacilityScheduler.Pages.Account
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
             int key = UserController.GetInstance().InsertUser(textboxUserName.Text, textboxEmail.Text, textboxFirstName.Text, textboxLastName.Text, textboxPassword.Text);
-            Response.Redirect("Login.aspx");
+            if (key == -1)
+            {
+                //Redirect to the error page
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

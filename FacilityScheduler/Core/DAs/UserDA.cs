@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using FacilityScheduler.Core.Models;
+using System.Runtime.CompilerServices;
 
 namespace FacilityScheduler.Core.DA
 {
@@ -36,11 +37,10 @@ namespace FacilityScheduler.Core.DA
             return parameters;
         }
 
-        public int InsertUser(User user)
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void InsertUser(User user)
         {
-            int key = GetNextValue();
             SqlParameter[] parameters = new SqlParameter[6];
-            //parameters[0] = new SqlParameter() { ParameterName = "@user_id", SqlDbType = System.Data.SqlDbType.Int, Value = null };
             parameters[0] = new SqlParameter() { ParameterName = "@firstname", SqlDbType = System.Data.SqlDbType.NChar, Value = user.FirstName };
             parameters[1] = new SqlParameter() { ParameterName = "@lastname", SqlDbType = System.Data.SqlDbType.NChar, Value = user.LastName };
             parameters[2] = new SqlParameter() { ParameterName = "@email", SqlDbType = System.Data.SqlDbType.NChar, Value = user.Email };
@@ -49,15 +49,14 @@ namespace FacilityScheduler.Core.DA
             parameters[5] = new SqlParameter() { ParameterName = "@admin_verified", SqlDbType = System.Data.SqlDbType.Bit, Value = user.Verified };
 
             InsertUsingTransaction(parameters);
-            return key;
         }
 
-        public User RecoverUser(string user, string password)
+        public User RecoverUser(string email, string password)
         {
             SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
             SqlCommand command = new SqlCommand("select * from [dbo].[Users] where email = @email and password=@password;", connection);
             command.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
-            command.Parameters["@email"].Value = user;
+            command.Parameters["@email"].Value = email;
             command.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
             command.Parameters["@password"].Value = password;
             connection.Open();
@@ -66,9 +65,8 @@ namespace FacilityScheduler.Core.DA
             User account = null;
             if (reader.Read())
             {
-                return new User((int)reader["user_id"], (string)reader["firstname"],
-                (string)reader["lastname"], (string)reader["email"],
-                (string)reader["password"], User.ConvertCategory((string)reader["category"]), (bool)reader["admin_verified"]);
+                return new User((int)reader["user_id"], (string)reader["email"], (string)reader["password"], (string)reader["firstname"],
+                (string)reader["lastname"], User.ConvertCategory((string)reader["category"]), (bool)reader["admin_verified"]);
             }
 
             reader.Close();

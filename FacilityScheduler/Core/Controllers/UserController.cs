@@ -29,30 +29,27 @@ namespace FacilityScheduler.Core.Controller
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public int InsertUser(string UserName, string Email, string FirstName, string LastName, string Password)
+        public void InsertUser(string UserName, string Email, string FirstName, string LastName, string Password)
         {
-            int key = -1;
             UserDA.openConnection();
             SqlTransaction transaction = UserDA.BeginTransaction();
             try
             {
                 //insert the user
-                int userKey = UserDA.InsertUser(new User(UserName, Email, FirstName, LastName, Password, User.Category.Student));
+                UserDA.InsertUser(new User(Email, FirstName, LastName, Password, User.Category.Student));
                 transaction.Commit();
-                key = userKey;
             }
             catch (Exception e)
             {
                 transaction.Rollback();
-                Console.Write("Hello via Console!");
-                System.Diagnostics.Debug.Write("Hello via Debug!");
-                System.Diagnostics.Trace.Write("Hello via Trace!");
+                Console.Write(e.StackTrace);
+                System.Diagnostics.Debug.Write(e.StackTrace);
+                System.Diagnostics.Trace.Write(e.StackTrace);
             }
             finally
             {
                 UserDA.closeConnection();
             }
-            return key;
         }
     }
 }

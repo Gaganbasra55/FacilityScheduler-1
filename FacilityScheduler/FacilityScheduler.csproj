@@ -85,10 +85,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Controllers\FacilityController.cs" />
     <Compile Include="Core\Controllers\UserController.cs" />
     <Compile Include="Core\Controllers\AuthenticationController.cs" />
     <Compile Include="Core\DAs\AbstractDA.cs" />
+    <Compile Include="Core\DAs\FacilityDA.cs" />
     <Compile Include="Core\DAs\UserDA.cs" />
+    <Compile Include="Core\Models\Facility.cs" />
     <Compile Include="Core\Models\User.cs" />
     <Compile Include="Core\Utils\FacilityUtil.cs" />
     <Compile Include="MasterPage.Master.cs">
