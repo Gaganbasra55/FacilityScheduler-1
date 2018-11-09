@@ -7,15 +7,68 @@ namespace FacilityScheduler.Core.Models
 {
     public class User
     {
-        private int Id { get; set; }
-        private string Email { get; set; }
-        private string UserName { get; set; }
-        private string FirstName { get; set; }
-        private string LastName { get; set; }
+        public enum Category { Admin, Moderator, Faculty, Student };
 
-        //Password dont need to be here
+        public static Category ConvertCategory(string category)
+        {
+            switch (category)
+            {
+                case "Admin":
+                    return Category.Admin;
+                case "Moderator":
+                    return Category.Moderator;
+                case "Faculty":
+                    return Category.Faculty;
+                case "Student":
+                    return Category.Student;
+                default:
+                    return Category.Student;
+            }
+        }
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Password { get; set; }
 
-        private char Type { get; set; }
+        public Category category { get; set; }
+        public bool Verified;
+
+        public User(int Id, string Email,  string UserName, string FirstName, string LastName,
+            string Password, Category category, bool Verified)
+        {
+            this.Id = Id;
+            this.Email = Email;
+            this.UserName = UserName;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Password = Password;
+            this.category = category;
+            this.Verified = Verified;
+        }
+
+        public User(int Id, string Email, string UserName, string FirstName, string LastName, Category category, bool Verified)
+        {
+            this.Id = Id;
+            this.Email = Email;
+            this.UserName = UserName;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.category = category;
+            this.Verified = Verified;
+        }
+
+        public User(string Email, string UserName, string FirstName, string LastName, string Password, Category category)
+        {
+            this.UserName = UserName;
+            this.Email = Email;
+
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Password = Password;
+            this.category = category;
+        }
 
     }
 }

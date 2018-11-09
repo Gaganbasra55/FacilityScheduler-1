@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacilityScheduler.Core.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,7 @@ namespace FacilityScheduler.Pages.Account
 
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
+            int key = UserController.GetInstance().InsertUser(textboxUserName.Text, textboxEmail.Text, textboxFirstName.Text, textboxLastName.Text, textboxPassword.Text);
             Response.Redirect("Login.aspx");
         }
     }
