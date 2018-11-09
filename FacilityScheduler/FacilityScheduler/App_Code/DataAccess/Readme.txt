@@ -1,1 +1,0 @@
-﻿This folder for Communicating to the Database
