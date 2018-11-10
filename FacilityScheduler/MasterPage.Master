@@ -41,11 +41,19 @@
                     </ul>
                 </div>
 			-->
+            <div class="center menu">
+                <asp:LinkButton ID="LinkButtonHome" runat="server" Text="Home" OnClick="Home_Click" />                
+                <asp:LinkButton ID="LinkButtonFacility" runat="server" Text="Facitity Management" OnClick="Facility_Click" />                
+                <asp:LinkButton ID="LinkButtonLogout" runat="server" Text="Logout" OnClick="Logout_Click" />
+            </div>
                 <div id="content">
                              <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                            
                                 
                              </asp:ContentPlaceHolder>
                 </div>
+                 <div id="footer" class="center footer">
+                 &copy; Frederico, Shyam, Gagandeep, Tanureet, Mashud, Gaurav | COMP 231 – 007 Software Development Project 1
+            </div>
 
         </div>
     </form>
