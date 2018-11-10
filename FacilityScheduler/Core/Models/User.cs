@@ -7,7 +7,7 @@ namespace FacilityScheduler.Core.Models
 {
     public class User
     {
-        public enum Category { Admin, Moderator, Faculty, Student };
+        public enum Category { Admin, Moderator, Faculty, Staff, Student };
 
         public static Category ConvertCategory(string category)
         {
@@ -64,6 +64,27 @@ namespace FacilityScheduler.Core.Models
             this.LastName = LastName;
             this.Password = Password;
             this.category = category;
+        }
+
+        public bool IsAdmin()
+        {
+            return Category.Admin == category;
+        }
+        public bool IsModerator()
+        {
+            return Category.Moderator == category;
+        }
+        public bool IsFaculty()
+        {
+            return Category.Faculty == category;
+        }
+        public bool IsStaff()
+        {
+            return Category.Staff == category;
+        }
+        public bool IsStudent()
+        {
+            return Category.Student == category;
         }
 
     }

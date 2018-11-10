@@ -13,22 +13,71 @@ namespace FacilityScheduler.Pages.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpCookie userCookie;
+            userCookie = Request.Cookies["UserID"];
+            if (userCookie == null)
+            {
+                //Nothing to do
 
+            }
+            else
+            {
+                Response.Redirect("~/Pages/Home.aspx");
+            }
         }
 
         protected void buttonLogin_Click(object sender, EventArgs e)
         {
-            User user = AuthenticationController.GetInstance().AuthenticateAndValidate(textboxUserName.Text, textboxPassword.Text);
-            if (user == null)
+
+            HttpCookie userCookie;
+            userCookie = Request.Cookies["UserID"];
+            if (userCookie == null)
             {
-                Response.Redirect("~/Pages/Error.aspx");
-            }
-            if (FacilityScheduler.Core.Models.User.Category.Admin == user.category)
-            {
-                Response.Redirect("~/Pages/Facilities/Facilities.aspx");
-            } else
-            {
-                Response.Redirect("~/Pages/Home.aspx");
+                // "Cookie Does not exists! Creating a cookie  now.";
+                string email = textboxUserName.Text;
+                string password = textboxPassword.Text;
+
+                //Do the authentication
+                string mode = System.Configuration.ConfigurationManager.AppSettings["AUTHENTICATION_MODE"];
+                bool auth = mode.Equals("ENABLED");
+                User user;
+                if (auth)
+                {
+                    user = AuthenticationController.GetInstance().AuthenticateAndValidate(email, password);
+                } else
+                {
+                    user = new User("Email.com", "FirstName", "LastName", "12345678", FacilityScheduler.Core.Models.User.Category.Admin);
+                }
+                if (user == null)
+                {
+                    //show error message
+                    Response.Redirect("~/Pages/Error.aspx");
+                }
+                else
+                {
+                    userCookie = new HttpCookie("UserID", "" + user.Id);
+                    userCookie.Expires = DateTime.Now.AddMinutes(30);
+                    Response.Cookies.Add(userCookie);
+
+                    HttpCookie c0 = new HttpCookie("UserCategory", "" + user.category);
+                    c0.Expires = DateTime.Now.AddMinutes(30);
+                    Response.Cookies.Add(c0);
+
+                    String userName = user.FirstName + " " + user.LastName;
+
+                    HttpCookie c1 = new HttpCookie("UserName", userName);
+                    c1.Expires = DateTime.Now.AddMinutes(30);
+                    Response.Cookies.Add(c1);
+
+                    if (user.IsAdmin())
+                    {
+                        Response.Redirect("~/Pages/Facilities/Facilities.aspx");
+                    }
+                    else if (user.IsStudent())
+                    {
+                        Response.Redirect("~/Pages/Home.aspx");
+                    }
+                }
             }
         }
 
