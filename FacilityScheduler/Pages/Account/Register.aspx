@@ -10,8 +10,8 @@
 
 		<div class="w3-padding w3-left-align">
 			<h5>Email:</h5>
-			<asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Email Required" ControlToValidate="textboxEmail" ForeColor="Red"></asp:RequiredFieldValidator><br />
-			<asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid Email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="textboxEmail" ForeColor="Red"></asp:RegularExpressionValidator><br />
+			<asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Email Required" ControlToValidate="textboxEmail" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+			<asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid Email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="textboxEmail" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator><br />
 			<asp:TextBox ID="textboxEmail" runat="server" CssClass="w3-input w3-border w3-round"></asp:TextBox>
 		</div>
 
@@ -34,7 +34,7 @@
 		</div>
 		<div class="w3-half w3-left-align  w3-padding">
 			<h5>Re-Password: &nbsp;</h5>
-			<asp:CompareValidator ID="CompareValidatorPassword" runat="server" ErrorMessage="Password does not match" ControlToCompare="textboxPassword" ForeColor="Red"  Display="Dynamic" ControlToValidate="textboxRepassword"></asp:CompareValidator><br />
+			<asp:CompareValidator ID="CompareValidatorPassword" runat="server" ErrorMessage="Password does not match" ControlToCompare="textboxPassword" ForeColor="Red"  Display="Dynamic" ControlToValidate="textboxRepassword"></asp:CompareValidator>
 			<asp:RequiredFieldValidator ID="RequiredFieldValidatorRepassword" runat="server" ErrorMessage="Re-enter the password" ControlToValidate="textboxRepassword" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator><br />
 			<asp:TextBox ID="textboxRepassword" runat="server" TextMode="Password" CssClass="w3-input w3-border w3-round "></asp:TextBox>
 		</div>

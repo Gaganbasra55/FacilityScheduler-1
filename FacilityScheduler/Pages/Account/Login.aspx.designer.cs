@@ -13,15 +13,6 @@ namespace FacilityScheduler.Pages.Account {
     public partial class Login {
         
         /// <summary>
-        /// textboxUserName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxUserName;
-        
-        /// <summary>
         /// RequiredFieldValidatorUserName control.
         /// </summary>
         /// <remarks>
@@ -31,13 +22,13 @@ namespace FacilityScheduler.Pages.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorUserName;
         
         /// <summary>
-        /// textboxPassword control.
+        /// textboxUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxPassword;
+        protected global::System.Web.UI.WebControls.TextBox textboxUserName;
         
         /// <summary>
         /// RequiredFieldValidatorPassword control.
@@ -49,6 +40,15 @@ namespace FacilityScheduler.Pages.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPassword;
         
         /// <summary>
+        /// textboxPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textboxPassword;
+        
+        /// <summary>
         /// buttonLogin control.
         /// </summary>
         /// <remarks>
@@ -56,15 +56,6 @@ namespace FacilityScheduler.Pages.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttonLogin;
-        
-        /// <summary>
-        /// linkButtonForgotAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkButtonForgotAccount;
         
         /// <summary>
         /// linkButtonRegisterNow control.
