@@ -81,7 +81,6 @@
     <Content Include="Pages\Facilities\Facilities.aspx" />
     <Content Include="Pages\Facilities\FacilitiesSecond.aspx" />
     <Content Include="Pages\Error.aspx" />
-    <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Management.aspx" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Web.config" />
@@ -158,13 +157,6 @@
     </Compile>
     <Compile Include="Pages\Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Management.aspx.cs">
       <DependentUpon>Management.aspx</DependentUpon>

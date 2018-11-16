@@ -17,8 +17,8 @@ namespace FacilityScheduler.Pages.Account
 
         protected void buttonRegister_Click(object sender, EventArgs e)
         {
-            UserController.GetInstance().InsertUser(textboxUserName.Text, textboxEmail.Text, textboxFirstName.Text, textboxLastName.Text, textboxPassword.Text);            
-                Response.Redirect("Login.aspx");            
+           /* UserController.GetInstance().InsertUser(textboxUserName.Text, textboxEmail.Text, textboxFirstName.Text, textboxLastName.Text, textboxPassword.Text);            
+                Response.Redirect("Login.aspx");            */
         }
     }
 }

@@ -13,13 +13,13 @@ namespace FacilityScheduler.Pages.Account {
     public partial class Register {
         
         /// <summary>
-        /// textboxUserName control.
+        /// textboxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxUserName;
+        protected global::System.Web.UI.WebControls.TextBox textboxEmail;
         
         /// <summary>
         /// textboxFirstName control.
@@ -38,15 +38,6 @@ namespace FacilityScheduler.Pages.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textboxLastName;
-        
-        /// <summary>
-        /// textboxEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxEmail;
         
         /// <summary>
         /// textboxPassword control.
