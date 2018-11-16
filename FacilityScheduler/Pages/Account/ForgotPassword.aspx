@@ -5,9 +5,9 @@
     <div id="divForgotPasswordPage">
 <p> Welcome to Forgot Password Page</p>
     <p>
-        Please Enter Your User Name: <br />
+        Please Enter Your User Name:  
         <asp:TextBox ID="textboxForgotPassword" runat="server"></asp:TextBox> 
-        <asp:RequiredFieldValidator ID="RequiredFieldValidatorForgotPassword" runat="server" ErrorMessage="User Name Required" ControlToValidate="textboxForgotPassword" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator> <br /><br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidatorForgotPassword" runat="server" ErrorMessage="User Name Required" ControlToValidate="textboxForgotPassword" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>   
         
         <asp:Button ID="buttonForgotPassword" runat="server" OnClick="buttonForgotPassword_Click" Text="Submit & Check your Email" />
     </p>
