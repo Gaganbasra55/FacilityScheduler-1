@@ -8,9 +8,13 @@
     </p>
     <p>
         Facility Name: <br />
-        <asp:TextBox ID="textboxFacityName" runat="server"></asp:TextBox> <br />
-        Facility Code: <br />
-        <asp:TextBox ID="textboxFacilityCode" runat="server"></asp:TextBox><br />
+        <asp:TextBox ID="textboxFacityName" runat="server"></asp:TextBox> 
+        <asp:RequiredFieldValidator ID="RequiredFieldValidatorFacilityName" runat="server" ErrorMessage="Facility name required" ControlToValidate="textboxFacityName" ForeColor="Red"></asp:RequiredFieldValidator><br />
+        
+        Facility Code:<br />
+        <asp:TextBox ID="textboxFacilityCode" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidatorFacilityCode" runat="server" ErrorMessage="Facility code required" ControlToValidate="textboxFacilityCode" ForeColor="Red"></asp:RequiredFieldValidator>
+        <br />
         Facility Description: <br />
         <asp:TextBox ID="textboxFacilityDescription" runat="server"></asp:TextBox><br />
         <%--Email: <br />

@@ -3,7 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="divFacilities">
-    <p>Welcome to Facility Management Page</p><br />
+    <p>Welcome to Facility Management Page</p>
+        <asp:Label ID="Label1" runat="server" Text="Search a facility"></asp:Label>
+        &nbsp;&nbsp;<asp:TextBox ID="TextBoxSearchFacility" runat="server"></asp:TextBox>&nbsp;&nbsp;
+        <asp:RequiredFieldValidator ID="RequiredFieldValidatorSearchFacility" runat="server" ErrorMessage="Fred Help us!!!" ControlToValidate="textboxSearchFacility" ForeColor="Red"></asp:RequiredFieldValidator><br />
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="Button" />
+        <br />
+        <br />
     <asp:table id="facilityTable" runat="server" BackColor="#99FF66" BorderColor="#000066" BorderStyle="Ridge" ForeColor="#333300" GridLines="Horizontal" HorizontalAlign="Justify" Width="100%">
     <asp:TableRow >
         <asp:TableCell>Code</asp:TableCell>
