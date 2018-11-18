@@ -4,58 +4,45 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-    <link href="Style/StyleSheet.css" rel ="stylesheet" type="text/css"/>
-    
+	<title></title>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+	<!--<link href="Style/StyleSheet.css" rel ="stylesheet" type="text/css"/>-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<style>
+		body, h1, h2, h3, h4, h5, h6 {
+			font-family: "Raleway", Arial, Helvetica, sans-serif
+		}
+
+		.mySlides {
+			display: none
+		}
+	</style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div id="mainPage">
-            <div id="wrapper">
-                </div>
-                <!--<div id="forTime">
-                    <h3>Time:<asp:Label ID="timeAndDate" runat="server" Text="TimeAndDate"></asp:Label>
-                    </h3>
-                </div>-->
-				<br>
-                <div id="banner" style="vertical-align:middle; text-align:center">
-                    <asp:Image  runat="server" ImageUrl="~/images/logo_fs.png"/>
-                </div>
-			<!--
-                <div id="navigation">
-                    <ul class="nav">
+	<form id="form1" runat="server">
+		<div class="w3-bar w3-white w3-center w3-padding">
+			<asp:Image class="w3-image" runat="server" ImageUrl="~/images/logo_fs.png" Width="384" Height="192" />
+			<div class="w3-margin-left w3-margin-right">
+				<hr>
+			</div>
+		</div>
 
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Home.aspx" >Home</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Facilities/Facilities.aspx" >Facilities</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Contactus.aspx" >Contact</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Branches.aspx" >Branches</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Facilities/FacilitiesSecond.aspx" >Facility Second</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Management.aspx" >Management</asp:HyperLink></li> 
-                        
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Account/Login.aspx" >LOG IN</asp:HyperLink>                
-                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Account/Register.aspx" >Register</asp:HyperLink></li>
-                    <li><asp:HyperLink runat="server" NavigateUrl="~Pages/Account/ForgotPassword.aspx"></asp:HyperLink></li>
-                    
-                    </ul>
-                </div>
-			-->
-            <div class="center menu">
-                <asp:LinkButton ID="LinkButtonHome" runat="server" Text="Home" OnClick="Home_Click" />                
-                <asp:LinkButton ID="LinkButtonFacility" runat="server" Text="Facitity Management" OnClick="Facility_Click" />                
-                <asp:LinkButton ID="LinkButtonLogout" runat="server" Text="Logout" OnClick="Logout_Click" />
-            </div>
-                <div id="content">
-                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                            
-                                
-                             </asp:ContentPlaceHolder>
-                </div>
-                 <div id="footer" class="center footer">
-                 &copy; Frederico, Shyam, Gagandeep, Tanureet, Mashud, Gaurav | COMP 231 – 007 Software Development Project 1
-            </div>
+		<div class="w3-center">
+			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+			</asp:ContentPlaceHolder>
+		</div>
 
-        </div>
-    </form>
+	</form>
+	<!-- Footer -->
+	<footer class="w3-padding w3-center w3-margin-top">
+		<div class="w3-margin-left w3-margin-right">
+			<hr>
+		</div>
+		<p>COMP 231 – 007 Software Development Project 1</p>
+		<p>Developed By: Frederico, Shyam, Gagandeep, Tanureet, Mashud, Gaurav </p>
+	</footer>
 </body>
 </html>

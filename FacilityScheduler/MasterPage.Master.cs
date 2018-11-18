@@ -27,14 +27,9 @@ namespace FacilityScheduler
                     Response.Redirect("~/Pages/Account/Login.aspx");
                 }
 
-                LinkButtonHome.Visible = false;
-                LinkButtonFacility.Visible = false;
-                LinkButtonLogout.Visible = false;
             }
             else
             {
-
-                LinkButtonLogout.Visible = true;
 
                 HttpCookie c1 = Request.Cookies["UserName"];
                 if (c1 == null)
@@ -53,7 +48,7 @@ namespace FacilityScheduler
                 }
                 else if (c.Value == "Admin")
                 {
-                    LinkButtonFacility.Visible = true;
+                    
                 }
                 else if (c.Value == "Moderator")
                 {
@@ -69,7 +64,7 @@ namespace FacilityScheduler
                 }
                 else if (c.Value == "Student")
                 {
-                    LinkButtonFacility.Visible = false;
+                    
                 }
             }
         }

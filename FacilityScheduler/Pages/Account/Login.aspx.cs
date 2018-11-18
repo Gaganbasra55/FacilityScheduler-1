@@ -22,7 +22,7 @@ namespace FacilityScheduler.Pages.Account
             }
             else
             {
-                Response.Redirect("~/Pages/Home.aspx");
+                //Response.Redirect("~/Pages/Home.aspx");
             }
         }
 
@@ -75,7 +75,7 @@ namespace FacilityScheduler.Pages.Account
                     }
                     else if (user.IsStudent())
                     {
-                        Response.Redirect("~/Pages/Home.aspx");
+                        //Response.Redirect("~/Pages/Home.aspx");
                     }
                 }
             }
