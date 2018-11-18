@@ -22,6 +22,15 @@ namespace FacilityScheduler.Pages {
         protected global::System.Web.UI.WebControls.TextBox textboxFacityName;
         
         /// <summary>
+        /// RequiredFieldValidatorFacilityName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFacilityName;
+        
+        /// <summary>
         /// textboxFacilityCode control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace FacilityScheduler.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textboxFacilityCode;
+        
+        /// <summary>
+        /// RequiredFieldValidatorFacilityCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFacilityCode;
         
         /// <summary>
         /// textboxFacilityDescription control.
