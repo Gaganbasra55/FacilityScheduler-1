@@ -90,11 +90,19 @@ namespace FacilityScheduler
             Response.Redirect("~/Pages/Facilities/Facilities.aspx");
         }
 
-        //protected void lnkLogout_Click(object sender, EventArgs e)
-        //{
-        //    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-        //    authenticationManager.SignOut();
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            //Logout COde
+            Response.Cookies.Remove("UserID");
+            Response.Redirect("~/Pages/Account/Login.aspx");
 
-        //    Response.Redirect("~/Index.aspx");
-    }
+        }
+
+            //protected void lnkLogout_Click(object sender, EventArgs e)
+            //{
+            //    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            //    authenticationManager.SignOut();
+
+            //    Response.Redirect("~/Index.aspx");
+        }
 }

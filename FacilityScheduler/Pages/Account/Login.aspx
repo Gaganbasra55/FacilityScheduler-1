@@ -31,7 +31,7 @@
 					<asp:TextBox ID="textboxUserName" runat="server" ValidationGroup="login" OnTextChanged="textboxUserName_TextChanged" CssClass="w3-input w3-border w3-round" placeholder="Username"></asp:TextBox>
 
 					<asp:RequiredFieldValidator ValidationGroup="login" ID="RequiredFieldValidatorPassword" runat="server" ErrorMessage="Password Required" ControlToValidate="textboxPassword" ForeColor="Red"></asp:RequiredFieldValidator>
-					<asp:TextBox ID="textboxPassword" runat="server" ValidationGroup="login" CssClass="w3-input w3-border w3-round" placeholder="Password">
+					<asp:TextBox TextMode="Password" ID="textboxPassword" runat="server" ValidationGroup="login" CssClass="w3-input w3-border w3-round" placeholder="Password">
 					</asp:TextBox>
 					<br />
 					<asp:Button ID="buttonLogin" runat="server" ValidationGroup="login" OnClick="buttonLogin_Click" Text="Log In" CssClass="w3-button w3-black w3-padding w3-round" />

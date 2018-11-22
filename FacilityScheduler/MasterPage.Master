@@ -23,22 +23,22 @@
 
 </head>
 <body>
-	<div class="w3-top w3-bar w3-blue-gray">
-		<a href="#home" class="w3-bar-item w3-button w3-wide w3-display-left">Logout</a>
-		<label class="w3-bar-item w3-right w3-wide">
-			Facility Scheduler
+	<form id="form1" runat="server">
+		<div class="w3-top w3-bar w3-blue-gray">
+			<asp:Button runat="server" CssClass="w3-bar-item w3-button w3-wide w3-display-left" OnClick="Unnamed_Click" CausesValidation="false"  Text="Logout"></asp:Button>
+			<label class="w3-bar-item w3-right w3-wide">
+				Facility Scheduler
 			<asp:Image runat="server" ImageUrl="~/images/logo2.png" />
-		</label>
-	</div>
-	<br /><br /><br />
-	<div class="w3-content">
-		<form id="form1" runat="server">
-			<div class="w3-center">
-				<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-				</asp:ContentPlaceHolder>
-			</div>
-		</form>
-	</div>
+			</label>
+		</div>
+		<br />
+		<br />
+		<br />
+		<div class="w3-center">
+			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+			</asp:ContentPlaceHolder>
+		</div>
+	</form>
 	<!-- Footer -->
 	<footer class="w3-padding w3-center w3-margin-top">
 		<div class="w3-margin-left w3-margin-right">
