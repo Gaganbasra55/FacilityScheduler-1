@@ -72,12 +72,15 @@
     <Content Include="images\02twitter.gif" />
     <Content Include="images\03Youtube.gif" />
     <Content Include="images\04ImageBanner.PNG" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo2.png" />
     <Content Include="images\logo_fs.png" />
     <Content Include="Pages\Account\ForgotPassword.aspx" />
     <Content Include="Pages\Account\Login.aspx" />
     <Content Include="Pages\Account\Register.aspx" />
     <Content Include="Pages\Branches.aspx" />
     <Content Include="Pages\Contactus.aspx" />
+    <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\Facilities\Facilities.aspx" />
     <Content Include="Pages\Facilities\FacilitiesSecond.aspx" />
     <Content Include="Pages\Error.aspx" />
@@ -136,6 +139,13 @@
     </Compile>
     <Compile Include="Pages\Contactus.aspx.designer.cs">
       <DependentUpon>Contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facilities\Facilities.aspx.cs">
       <DependentUpon>Facilities.aspx</DependentUpon>
