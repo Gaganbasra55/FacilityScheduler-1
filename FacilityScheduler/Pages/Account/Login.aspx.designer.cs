@@ -13,6 +13,15 @@ namespace FacilityScheduler.Pages.Account {
     public partial class Login {
         
         /// <summary>
+        /// CustomValidatorValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorValid;
+        
+        /// <summary>
         /// RequiredFieldValidatorUserName control.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,14 @@ namespace FacilityScheduler.Pages.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkButtonRegisterNow;
+        
+        /// <summary>
+        /// linkButtonForgotPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkButtonForgotPassword;
     }
 }

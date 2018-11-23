@@ -40,30 +40,48 @@ namespace FacilityScheduler.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSearchFacility;
         
         /// <summary>
-        /// Button1 control.
+        /// SearchButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button SearchButton;
         
         /// <summary>
-        /// facilityTable control.
+        /// tableFacilities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table facilityTable;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableFacilities;
         
         /// <summary>
-        /// addFacility control.
+        /// FacilitiesTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addFacility;
+        protected global::System.Web.UI.WebControls.Table FacilitiesTable;
+        
+        /// <summary>
+        /// NoFacilityElements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NoFacilityElements;
+        
+        /// <summary>
+        /// AddFacility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddFacility;
     }
 }

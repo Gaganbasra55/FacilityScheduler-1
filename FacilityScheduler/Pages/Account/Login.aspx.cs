@@ -51,7 +51,8 @@ namespace FacilityScheduler.Pages.Account
                 if (user == null)
                 {
                     //show error message
-                    Response.Redirect("~/Pages/Error.aspx");
+                    //Response.Redirect("~/Pages/Error.aspx");
+                    //do nothing
                 }
                 else
                 {
@@ -86,14 +87,38 @@ namespace FacilityScheduler.Pages.Account
             Response.Redirect("Register.aspx");
         }
 
-        protected void linkButtonForgotAccount_Click(object sender, EventArgs e)
+        protected void linkButtonForgotPassword_Click(object sender, EventArgs e)
         {
             Response.Redirect("ForgotPassword.aspx");
         }
 
-        protected void textboxUserName_TextChanged(object sender, EventArgs e)
+        protected void AuthenticateUser(object source, ServerValidateEventArgs args)
         {
+            if (!ValidateUser())
+            {
+                args.IsValid = false;
+            }
+        }
 
+        private bool ValidateUser()
+        {
+            string email = textboxUserName.Text;
+            string password = textboxPassword.Text;
+
+            //Do the authentication
+            string mode = System.Configuration.ConfigurationManager.AppSettings["AUTHENTICATION_MODE"];
+            bool auth = mode.Equals("ENABLED");
+            User user;
+            if (auth)
+            {
+                //change to exists
+                user = AuthenticationController.GetInstance().AuthenticateAndValidate(email, password);
+                if (user == null)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

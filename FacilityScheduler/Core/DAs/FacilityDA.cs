@@ -47,6 +47,57 @@ namespace FacilityScheduler.Core.DA
             InsertUsingTransaction(parameters);
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void UpdateFacility(Facility Facility)
+        {
+            SqlParameter[] parameters = new SqlParameter[4];
+            parameters[0] = new SqlParameter() { ParameterName = "@name", SqlDbType = System.Data.SqlDbType.NChar, Value = Facility.Name };
+            parameters[1] = new SqlParameter() { ParameterName = "@time_slot_length", SqlDbType = System.Data.SqlDbType.NChar, Value = Facility.timeSlot };
+            parameters[2] = new SqlParameter() { ParameterName = "@day_start_time", SqlDbType = System.Data.SqlDbType.Time, Value = FacilityUtil.ConvertDateTimeToTimeString(Facility.StartTime) };
+            parameters[3] = new SqlParameter() { ParameterName = "@day_end_time", SqlDbType = System.Data.SqlDbType.Time, Value = FacilityUtil.ConvertDateTimeToTimeString(Facility.EndTime) };
+
+            UpdateUsingTransaction(parameters, Facility.Id);
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void DeleteFacility(int id)
+        {
+            DeleteUsingTransaction(id);
+        }
+
+        public List<Facility> SearchFacility(string argument)
+        {
+            List<Facility> list = new List<Facility>();
+            SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
+            string query;
+            bool validArgs = argument != null && argument.Length > 0;
+            if (validArgs)
+            {
+                query = "select * from " + GetTableName() + " where name like '%@name%';";
+            } else
+            {
+                query = "select * from " + GetTableName() + ";";
+            }
+            SqlCommand command = new SqlCommand(query, connection);
+            if(validArgs)
+            {
+                command.Parameters.Add("@name", System.Data.SqlDbType.Int);
+                command.Parameters["@name"].Value = argument;
+            }
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                list.Add((Facility)CreateObject(reader));
+            }
+
+            reader.Close();
+            connection.Close();
+            return list;
+        }
+
         public override string GetTableName()
         {
             return "[dbo].[Facility]";
@@ -65,8 +116,8 @@ namespace FacilityScheduler.Core.DA
         public override Object CreateObject(SqlDataReader reader)
         {
             return new Facility((int)reader["facility_id"], (string)reader["name"],
-                (int)reader["time_slot_length"], FacilityUtil.ConvertTimeStringToDateTime((string)reader["day_start_time"]),
-                FacilityUtil.ConvertTimeStringToDateTime((string)reader["day_end_time"]));
+                (int)reader["time_slot_length"], FacilityUtil.ConvertTimeStringToDateTime(((TimeSpan)reader["day_start_time"]).ToString()),
+                FacilityUtil.ConvertTimeStringToDateTime(((TimeSpan)reader["day_end_time"]).ToString()));
         }
     }
 }

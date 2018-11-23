@@ -7,7 +7,6 @@ namespace FacilityScheduler.Core.Models
 {
     public class Facility
     {
-
         public int Id { get; set; }
         public string Name { get; set; }
         public int timeSlot { get; set; }

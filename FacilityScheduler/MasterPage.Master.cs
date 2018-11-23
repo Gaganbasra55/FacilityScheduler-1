@@ -26,11 +26,11 @@ namespace FacilityScheduler
                 {
                     Response.Redirect("~/Pages/Account/Login.aspx");
                 }
+                menu.Visible = false;
 
             }
             else
             {
-
                 HttpCookie c1 = Request.Cookies["UserName"];
                 if (c1 == null)
                 {
@@ -44,57 +44,73 @@ namespace FacilityScheduler
                 HttpCookie c = Request.Cookies["UserCategory"];
                 if (c == null)
                 {
+                    DoLogout();
                     Response.Redirect("~/Pages/Account/Login.aspx");
-                }
-                else if (c.Value == "Admin")
+                } else if (!IsPrivateAccess(sender) && (Session["UserId"]== null))
                 {
-                    
-                }
-                else if (c.Value == "Moderator")
-                {
+                    //send the user to the first page if is a public
+                    if (c.Value == "Admin")
+                    {
+                        Response.Redirect("~/Pages/Facilities/Facilities.aspx");
+                    }
+                    else if (c.Value == "Moderator")
+                    {
 
-                }
-                else if (c.Value == "Faculty")
-                {
+                    }
+                    else if (c.Value == "Faculty")
+                    {
 
-                }
-                else if (c.Value == "Staff")
-                {
+                    }
+                    else if (c.Value == "Staff")
+                    {
 
-                }
-                else if (c.Value == "Student")
-                {
-                    
+                    }
+                    else if (c.Value == "Student")
+                    {
+                        Response.Redirect("~/Pages/Management.aspx");
+                    }
+
                 }
             }
         }
 
-        protected void Home_Click(object sender, EventArgs e)
+        protected void Menu_Home_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/Home.aspx");
         }
 
-        protected void Logout_Click(object sender, EventArgs e)
+        protected void Menu_Logout_Click(object sender, EventArgs e)
+        {
+            DoLogout();
+            Response.Redirect("~/Pages/Account/Login.aspx");
+        }
+
+        private void DoLogout()
         {
             Session.Abandon();
             if (Request.Cookies["UserID"] != null)
             {
                 Response.Cookies["UserID"].Expires = DateTime.Now.AddDays(-1);
                 Application.RemoveAll();
+                Session.RemoveAll();
             }
-            Response.Redirect("~/Pages/Account/Login.aspx");
         }
 
-        protected void Facility_Click(object sender, EventArgs e)
+        protected void Menu_Facility_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/Facilities/Facilities.aspx");
         }
 
-        //protected void lnkLogout_Click(object sender, EventArgs e)
-        //{
-        //    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-        //    authenticationManager.SignOut();
+        protected void Menu_Account_Click(object sender, EventArgs e)
+        {
+            HttpCookie userCookie;
+            userCookie = Request.Cookies["UserID"];
+            if (userCookie != null)
+            {
+                Session["UserId"] = userCookie.Value;
+            }
+            Response.Redirect("~/Pages/Account/Register.aspx");
 
-        //    Response.Redirect("~/Index.aspx");
+        }
     }
 }

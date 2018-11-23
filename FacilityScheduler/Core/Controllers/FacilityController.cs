@@ -30,16 +30,21 @@ namespace FacilityScheduler.Core.Controllers
             FacilityDA = FacilityDA.GetInstance();
         }
 
+        public Facility Recover(int id)
+        {
+            return (Facility) FacilityDA.Recover(id);
+        }
+
 
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public void InsertFacility(string Name, int timeSlot, DateTime StartTime, DateTime EndTime)
+        public void InsertFacility(Facility facility)
         {
             FacilityDA.openConnection();
             SqlTransaction transaction = FacilityDA.BeginTransaction();
             try
             {
                 //insert the facility
-                FacilityDA.InsertFacility(new Facility(Name, timeSlot, StartTime, EndTime));
+                FacilityDA.InsertFacility(facility);
                 transaction.Commit();
             }
             catch (Exception e)
@@ -53,6 +58,61 @@ namespace FacilityScheduler.Core.Controllers
             {
                 FacilityDA.closeConnection();
             }
+        }
+
+
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void UpdateFacility(Facility facility)
+        {
+            FacilityDA.openConnection();
+            SqlTransaction transaction = FacilityDA.BeginTransaction();
+            try
+            {
+                //update the facility
+                FacilityDA.UpdateFacility(facility);
+                transaction.Commit();
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.Write(e.StackTrace);
+                System.Diagnostics.Debug.Write(e.StackTrace);
+                System.Diagnostics.Trace.Write(e.StackTrace);
+            }
+            finally
+            {
+                FacilityDA.closeConnection();
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void DeleteFacility(int id)
+        {
+            FacilityDA.openConnection();
+            SqlTransaction transaction = FacilityDA.BeginTransaction();
+            try
+            {
+                //delete the facility
+                FacilityDA.DeleteFacility(id);
+                transaction.Commit();
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.Write(e.StackTrace);
+                System.Diagnostics.Debug.Write(e.StackTrace);
+                System.Diagnostics.Trace.Write(e.StackTrace);
+            }
+            finally
+            {
+                FacilityDA.closeConnection();
+            }
+        }
+
+        public List<Facility> SearchFacility (string argument)
+        {
+            return FacilityDA.GetInstance().SearchFacility(argument);
         }
     }
 }
