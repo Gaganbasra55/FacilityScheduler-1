@@ -15,30 +15,35 @@
 		.mySlides {
 			display: none
 		}
-	</style>
+		</style>
 
-</head>
-<body>
-	<form id="form1" runat="server">
+		</head>
+		<body>
+		<form id="form1" runat="server">
 		<div class="w3-center">
 			<asp:Image class="w3-image" runat="server" ImageUrl="~/images/logo_fs.png" Width="384" Height="192" />
 			<div class="w3-margin-left w3-margin-right">
 				<hr>
 			</div>
-			<div class="w3-bar w3-white w3-center w3-medium">
-				<div class="w3-center w3-row-padding">
-					<asp:RequiredFieldValidator ValidationGroup="login" ID="RequiredFieldValidatorUserName" runat="server" ErrorMessage="User Name Required" ControlToValidate="textboxUserName" ForeColor="Red"></asp:RequiredFieldValidator>
-					<asp:TextBox ID="textboxUserName" runat="server" ValidationGroup="login" OnTextChanged="textboxUserName_TextChanged" CssClass="w3-input w3-border w3-round" placeholder="Username"></asp:TextBox>
 
-					<asp:RequiredFieldValidator ValidationGroup="login" ID="RequiredFieldValidatorPassword" runat="server" ErrorMessage="Password Required" ControlToValidate="textboxPassword" ForeColor="Red"></asp:RequiredFieldValidator>
-					<asp:TextBox TextMode="Password" ID="textboxPassword" runat="server" ValidationGroup="login" CssClass="w3-input w3-border w3-round" placeholder="Password">
-					</asp:TextBox>
-					<br />
-					<asp:Button ID="buttonLogin" runat="server" ValidationGroup="login" OnClick="buttonLogin_Click" Text="Log In" CssClass="w3-button w3-black w3-padding w3-round" />
-					<h5>
-						<asp:LinkButton ID="linkButtonRegisterNow" runat="server" OnClick="linkButtonRegisterNow_Click" CssClass="w3-medium">Register Now</asp:LinkButton>
-					</h5>
-				</div>
+	<div class="w3-bar w3-white w3-center w3-medium">
+				<div class="w3-center w3-row-padding">
+            <asp:CustomValidator ID="CustomValidatorValid" ValidationGroup="login" runat="server" ErrorMessage="Email or Password Invalid!" ControlToValidate="textboxUserName" ForeColor="Red" OnServerValidate="AuthenticateUser" Display="Dynamic" ></asp:CustomValidator>
+            <asp:RequiredFieldValidator ValidationGroup="login" ID="RequiredFieldValidatorUserName" runat="server" ErrorMessage="User Name Required" ControlToValidate="textboxUserName" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
+			<asp:TextBox ID="textboxUserName" runat="server" ValidationGroup="login" CssClass="w3-input w3-border w3-round" placeholder="Username"></asp:TextBox>
+
+            <asp:RequiredFieldValidator ValidationGroup="login" ID="RequiredFieldValidatorPassword" runat="server" ErrorMessage="Password Required" ControlToValidate="textboxPassword" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
+			<asp:TextBox ID="textboxPassword" TextMode="Password" runat="server" ValidationGroup="login" CssClass="w3-input w3-border w3-round" placeholder="Password">
+			</asp:TextBox>
+			 <br />
+			<asp:Button ID="buttonLogin" runat="server" ValidationGroup="login" OnClick="buttonLogin_Click" Text="Log In" CssClass="w3-button w3-black w3-padding w3-round" />
+			<h5>
+
+            <asp:LinkButton ID="linkButtonRegisterNow" runat="server" OnClick="linkButtonRegisterNow_Click">Register Now</asp:LinkButton>
+            <asp:LinkButton ID="linkButtonForgotPassword" runat="server" OnClick="linkButtonForgotPassword_Click">Forgot Password</asp:LinkButton>
+			</h5>
+			</div>
+
 
 			</div>
 		</div>

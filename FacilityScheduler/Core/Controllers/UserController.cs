@@ -29,14 +29,14 @@ namespace FacilityScheduler.Core.Controller
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public void InsertUser(string UserName, string Email, string FirstName, string LastName, string Password)
+        public void InsertUser(User user)
         {
             UserDA.openConnection();
             SqlTransaction transaction = UserDA.BeginTransaction();
             try
             {
                 //insert the user
-                UserDA.InsertUser(new User(Email, FirstName, LastName, Password, User.Category.Student));
+                UserDA.InsertUser(user);
                 transaction.Commit();
             }
             catch (Exception e)
@@ -51,5 +51,35 @@ namespace FacilityScheduler.Core.Controller
                 UserDA.closeConnection();
             }
         }
+
+        public User Recover(int id)
+        {
+            return (User)UserDA.Recover(id);
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void UpdateUser(User user)
+        {
+            UserDA.openConnection();
+            SqlTransaction transaction = UserDA.BeginTransaction();
+            try
+            {
+                //update the facility
+                UserDA.UpdateUser(user);
+                transaction.Commit();
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.Write(e.StackTrace);
+                System.Diagnostics.Debug.Write(e.StackTrace);
+                System.Diagnostics.Trace.Write(e.StackTrace);
+            }
+            finally
+            {
+                UserDA.closeConnection();
+            }
+        }
+
     }
 }

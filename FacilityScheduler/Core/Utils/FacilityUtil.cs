@@ -17,5 +17,12 @@ namespace FacilityScheduler
         {
             return DateTime.ParseExact(time, TIME_FORMAT, CultureInfo.InvariantCulture);
         }
+
+        public static DateTime ConvertDateTime(string hour, string minutes, string period)
+        {
+            string iString = "1990-01-01 " + hour + ":" + minutes + " " + period;
+            DateTime dateTime = DateTime.ParseExact(iString, "yyyy-MM-dd h:mm tt", null);
+            return dateTime;
+        }
     }
 }

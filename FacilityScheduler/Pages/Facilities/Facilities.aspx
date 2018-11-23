@@ -2,52 +2,38 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="divFacilities">
-    <p>Welcome to Facility Management Page</p>
+    <div id="w3-center">
+    <p>
+
         <asp:Label ID="Label1" runat="server" Text="Search a facility"></asp:Label>
-        &nbsp;&nbsp;<asp:TextBox ID="TextBoxSearchFacility" runat="server"></asp:TextBox>&nbsp;&nbsp;
+        &nbsp;&nbsp;<asp:TextBox ID="TextBoxSearchFacility" runat="server" ValidationGroup="searchGroup"></asp:TextBox>&nbsp;&nbsp;
+        <!--
         <asp:RequiredFieldValidator ID="RequiredFieldValidatorSearchFacility" runat="server" ErrorMessage="Fred Help us!!!" ControlToValidate="textboxSearchFacility" ForeColor="Red"></asp:RequiredFieldValidator> 
-         
-        <asp:Button ID="Button1" runat="server" Text="Button" />
-         
-         
-    <asp:table id="facilityTable" runat="server" BackColor="#99FF66" BorderColor="#000066" BorderStyle="Ridge" ForeColor="#333300" GridLines="Horizontal" HorizontalAlign="Justify" Width="100%">
-    <asp:TableRow >
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
+         -->
+        <asp:Button ID="SearchButton" runat="server" Text="Search" ValidationGroup="searchGroup" OnClick="SearchButton_Click" />
+    </p>
 
-    <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-        <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-        <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-        <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-    
-    </asp:table>
+        <div id="tableFacilities" runat="server" CssClass="w3-center">
+            <p>
+                <asp:table id="FacilitiesTable" runat="server" BackColor="#99FF66" BorderColor="#000066" BorderStyle="Ridge" ForeColor="#333300" GridLines="Horizontal" HorizontalAlign="Center" Width="75%">
+                    <asp:TableRow >
+                        <asp:TableCell>Facility</asp:TableCell>
+                        <asp:TableCell>Time Slot</asp:TableCell>
+                        <Asp:TableCell>Start Time</Asp:TableCell>
+                        <Asp:TableCell>End Time</Asp:TableCell>
+                        <Asp:TableCell> </Asp:TableCell>
+                        <Asp:TableCell> </Asp:TableCell>
+                    </asp:TableRow>
+                </asp:table>
+            </p>
+        </div>
+        <div id="NoFacilityElements" runat="server">
+            There is no element!
+        </div>
 
-	<asp:Button ID="addFacility" runat="server" OnClick="addFacility_Click" Text="Add Facility" CssClass="textBox"/>
-    
+    <p>
+	    <asp:Button ID="AddFacility" runat="server" OnClick="addFacility_Click"  ValidationGroup="addGroup" Text="Add Facility" CssClass="textBox"/>
+    </p>
   <%--
         A gridview if need   
           --%>
