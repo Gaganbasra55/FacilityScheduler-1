@@ -16,6 +16,7 @@
             </p>
             <p>
                 <asp:Button ID="buttonForgotPassword" runat="server" OnClick="buttonForgotPassword_Click" Text="Submit" />
+                <asp:Button ID="buttonCancel" runat="server" OnClick="buttonCancel_Click" Text="Cancel" ValidationGroup="none" />
             </p>
         </div><div id="CheckCode" runat="server">
             <p>
@@ -28,7 +29,7 @@
             </p>
             <p>
                 <asp:Button ID="buttonValidateCoce" runat="server" OnClick="buttonCheckCode_Click" Text="Submit" />
-                <asp:Button ID="buttonResend" runat="server" OnClick="buttonResendCode_Click" Text="Re-send code" ValidationGroup="none" />
+                <asp:Button ID="buttonResend" runat="server" OnClick="buttonResendCode_Click" Text="Re-send code" ValidationGroup="none" />                
             </p>
         </div>
     </div>

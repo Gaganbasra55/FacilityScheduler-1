@@ -73,6 +73,11 @@ namespace FacilityScheduler.Pages.Account
             Session["CodeGenerated"] = code;
         }
 
+        protected void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
         protected void buttonCheckCode_Click(object sender, EventArgs e)
         {
             string code = (string)Session["CodeGenerated"];
