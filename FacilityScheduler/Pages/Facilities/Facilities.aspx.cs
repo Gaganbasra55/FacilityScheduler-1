@@ -29,7 +29,7 @@ namespace FacilityScheduler.Pages
             //show or not the table
             tableFacilities.Visible = facilities.Count > 0;
             NoFacilityElements.Visible = facilities.Count < 1;
-
+            FacilitiesTable.Rows.Clear();
 
             foreach (Facility f in facilities)
             {
