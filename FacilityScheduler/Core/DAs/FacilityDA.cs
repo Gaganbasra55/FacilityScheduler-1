@@ -82,7 +82,7 @@ namespace FacilityScheduler.Core.DA
             if(validArgs)
             {
                 command.Parameters.Add("@name", System.Data.SqlDbType.NChar);
-                command.Parameters["@name"].Value = "%" + argument+ "%";
+                command.Parameters["@name"].Value = "%" + argument + "%";
             }
 
             connection.Open();

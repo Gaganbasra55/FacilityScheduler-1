@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div id="divMangepentPage">
-    <p>
-        Welcome in Management Page
-    </p>
+ <div class="w3-padding w3-bar w3-medium">
+            <h3 runat="server" id="add">Dashboard</h3>
+     </div>
 </div>
 </asp:Content>

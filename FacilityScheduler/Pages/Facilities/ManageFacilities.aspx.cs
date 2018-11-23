@@ -37,9 +37,11 @@ namespace FacilityScheduler.Pages
                     DropDownListEndDayPeriod.SelectedValue = facility.EndTime.ToString("tt", CultureInfo.InvariantCulture);
 
                     buttonCreateFacility.Visible = false;
+                    add.Visible = false;
                 } else
                 {
                     buttonUpdateFacility.Visible = false;
+                    edit.Visible = false;
                 }
             }
 
@@ -87,6 +89,7 @@ namespace FacilityScheduler.Pages
 
         protected void buttonCancel_Click(object sender, EventArgs e)
         {
+            Session.Remove("facultyId");
             Response.Redirect("Facilities.aspx");
         }
 
