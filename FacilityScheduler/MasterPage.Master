@@ -26,7 +26,10 @@
 <body>
 	<form id="form1" runat="server">
 		<div class="w3-top w3-bar w3-blue-gray">
-			<asp:Button runat="server" CssClass="w3-bar-item w3-button w3-wide w3-display-left" OnClick="Unnamed_Click" CausesValidation="false"  Text="Logout"></asp:Button>
+            <div class="w3-bar-item w3-button w3-wide w3-display-left">
+			    <asp:Button runat="server" OnClick="Menu_Logout_Click" CausesValidation="false"  Text="Logout"></asp:Button>
+			    <asp:Button runat="server" OnClick="Menu_Account_Click" CausesValidation="false"  Text="My Account"></asp:Button>
+            </div>
 			<label class="w3-bar-item w3-right w3-wide">
 				Facility Scheduler
 			<asp:Image runat="server" ImageUrl="~/images/logo2.png" />

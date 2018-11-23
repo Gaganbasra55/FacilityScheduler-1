@@ -30,7 +30,7 @@ namespace FacilityScheduler.Pages
             tableFacilities.Visible = facilities.Count > 0;
             NoFacilityElements.Visible = facilities.Count < 1;
 
-
+            FacilitiesTable.Rows.Clear();
             foreach (Facility f in facilities)
             {
                 TableRow row = new TableRow();

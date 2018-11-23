@@ -13,16 +13,51 @@ namespace FacilityScheduler.Pages.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string userName = "";
             HttpCookie userCookie;
             userCookie = Request.Cookies["UserID"];
-            if (userCookie == null)
+            if (userCookie != null)
             {
-                //Nothing to do
+                HttpCookie c1 = Request.Cookies["UserName"];
+                if (c1 == null)
+                {
+                    userName = "user";
+                }
+                else
+                {
+                    userName = c1.Value;
+                }
 
-            }
-            else
-            {
-                //Response.Redirect("~/Pages/Home.aspx");
+                HttpCookie c = Request.Cookies["UserCategory"];
+                if (c == null)
+                {
+                    Response.Redirect("~/Pages/Account/Login.aspx");
+                }
+                else if ((Session["UserId"] == null))
+                {
+                    //send the user to the first page if is a public
+                    if (c.Value == "Admin")
+                    {
+                        Response.Redirect("~/Pages/Facilities/Facilities.aspx");
+                    }
+                    else if (c.Value == "Moderator")
+                    {
+
+                    }
+                    else if (c.Value == "Faculty")
+                    {
+
+                    }
+                    else if (c.Value == "Staff")
+                    {
+
+                    }
+                    else if (c.Value == "Student")
+                    {
+                        Response.Redirect("~/Pages/Management.aspx");
+                    }
+
+                }
             }
         }
 

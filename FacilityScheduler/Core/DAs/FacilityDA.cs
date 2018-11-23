@@ -73,7 +73,7 @@ namespace FacilityScheduler.Core.DA
             bool validArgs = argument != null && argument.Length > 0;
             if (validArgs)
             {
-                query = "select * from " + GetTableName() + " where name like '%@name%';";
+                query = "select * from " + GetTableName() + " where name like @name;";
             } else
             {
                 query = "select * from " + GetTableName() + ";";
@@ -81,8 +81,8 @@ namespace FacilityScheduler.Core.DA
             SqlCommand command = new SqlCommand(query, connection);
             if(validArgs)
             {
-                command.Parameters.Add("@name", System.Data.SqlDbType.Int);
-                command.Parameters["@name"].Value = argument;
+                command.Parameters.Add("@name", System.Data.SqlDbType.NChar);
+                command.Parameters["@name"].Value = "%" + argument+ "%";
             }
 
             connection.Open();

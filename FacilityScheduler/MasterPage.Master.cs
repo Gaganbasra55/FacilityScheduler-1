@@ -26,7 +26,7 @@ namespace FacilityScheduler
                 {
                     Response.Redirect("~/Pages/Account/Login.aspx");
                 }
-                menu.Visible = false;
+                //menu.Visible = false;
 
             }
             else
@@ -46,7 +46,7 @@ namespace FacilityScheduler
                 {
                     DoLogout();
                     Response.Redirect("~/Pages/Account/Login.aspx");
-                } else if (!IsPrivateAccess(sender) && (Session["UserId"]== null))
+                } else if (!IsPrivateAccess(sender))
                 {
                     //send the user to the first page if is a public
                     if (c.Value == "Admin")
@@ -91,9 +91,12 @@ namespace FacilityScheduler
             if (Request.Cookies["UserID"] != null)
             {
                 Response.Cookies["UserID"].Expires = DateTime.Now.AddDays(-1);
+                Request.Cookies["UserID"].Expires = DateTime.Now.AddDays(-1);
                 Application.RemoveAll();
                 Session.RemoveAll();
             }
+            //Response.Cookies.Remove("UserID");
+            //Request.Cookies.Remove("UserID");
         }
 
         protected void Menu_Facility_Click(object sender, EventArgs e)
@@ -105,6 +108,7 @@ namespace FacilityScheduler
         {
             //Logout COde
             Response.Cookies.Remove("UserID");
+            DoLogout();
             Response.Redirect("~/Pages/Account/Login.aspx");
 
         }
