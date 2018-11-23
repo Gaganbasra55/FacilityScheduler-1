@@ -68,7 +68,7 @@ namespace FacilityScheduler.Pages.Account
         protected void buttonCheckCode_Click(object sender, EventArgs e)
         {            
             string code = (string)Session["CodeGenerated"];
-            if (code!= null && code.Equals(textCode.Text))
+            if (code!= null && code.Trim().Equals(textCode.Text.Trim()))
             {
                 if (Session["UserObj"] != null)
                 {

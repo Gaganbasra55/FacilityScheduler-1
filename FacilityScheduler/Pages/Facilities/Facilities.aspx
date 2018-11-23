@@ -3,36 +3,23 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="w3-center">
-    <p>
-
-        <asp:Label ID="Label1" runat="server" Text="Search a facility"></asp:Label>
-        &nbsp;&nbsp;<asp:TextBox ID="TextBoxSearchFacility" runat="server" ValidationGroup="searchGroup"></asp:TextBox>&nbsp;&nbsp;
-        <!--
-        <asp:RequiredFieldValidator ID="RequiredFieldValidatorSearchFacility" runat="server" ErrorMessage="Fred Help us!!!" ControlToValidate="textboxSearchFacility" ForeColor="Red"></asp:RequiredFieldValidator> 
-         -->
-        <asp:Button ID="SearchButton" runat="server" Text="Search" ValidationGroup="searchGroup" OnClick="SearchButton_Click" />
-    </p>
-
+        <h5>Search a facility
+        <asp:TextBox ID="TextBoxSearchFacility" runat="server" ValidationGroup="searchGroup" CssClass="w3-round w3-margin-left"></asp:TextBox>&nbsp;&nbsp;
+        <asp:Button ID="SearchButton" runat="server" Text="Search" ValidationGroup="searchGroup" OnClick="SearchButton_Click" CssClass="w3-button w3-black w3-padding w3-round w3-medium" />
+        </h5>
         <div id="tableFacilities" runat="server" CssClass="w3-center">
             <p>
-                <asp:table id="FacilitiesTable" runat="server" BackColor="#99FF66" BorderColor="#000066" BorderStyle="Ridge" ForeColor="#333300" GridLines="Horizontal" HorizontalAlign="Center" Width="75%">
-                    <asp:TableRow >
-                        <asp:TableCell>Facility</asp:TableCell>
-                        <asp:TableCell>Time Slot</asp:TableCell>
-                        <Asp:TableCell>Start Time</Asp:TableCell>
-                        <Asp:TableCell>End Time</Asp:TableCell>
-                        <Asp:TableCell> </Asp:TableCell>
-                        <Asp:TableCell> </Asp:TableCell>
-                    </asp:TableRow>
+                <asp:table id="FacilitiesTable" runat="server" GridLines="Horizontal" HorizontalAlign="Center" Width="75%" CssClass="w3-table w3-centered w3-bordered w3-hoverable w3-text-black w3-white w3-round-large">
+                   
                 </asp:table>
             </p>
         </div>
         <div id="NoFacilityElements" runat="server">
-            There is no element!
+            <h5>There are no Facilities!</h5>
         </div>
 
     <p>
-	    <asp:Button ID="AddFacility" runat="server" OnClick="addFacility_Click"  ValidationGroup="addGroup" Text="Add Facility" CssClass="textBox"/>
+	    <asp:Button ID="AddFacility" runat="server" OnClick="addFacility_Click"  ValidationGroup="addGroup" Text="Add Facility" CssClass="w3-button w3-black w3-padding w3-round"/>
     </p>
   <%--
         A gridview if need   

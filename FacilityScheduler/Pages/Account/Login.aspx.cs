@@ -76,7 +76,8 @@ namespace FacilityScheduler.Pages.Account
                     }
                     else if (user.IsStudent())
                     {
-                        //Response.Redirect("~/Pages/Home.aspx");
+                        //suposed to be the dashboard
+                        Response.Redirect("~/Pages/Management.aspx");
                     }
                 }
             }

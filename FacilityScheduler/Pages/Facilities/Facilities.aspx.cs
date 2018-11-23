@@ -31,6 +31,39 @@ namespace FacilityScheduler.Pages
             NoFacilityElements.Visible = facilities.Count < 1;
             FacilitiesTable.Rows.Clear();
 
+            TableRow row0 = new TableRow();
+            row0.BackColor = System.Drawing.Color.FromArgb(255, 106, 169, 80);
+            TableCell cell01 = new TableCell();
+            cell01.Text = "Facility";
+            cell01.Font.Bold = true;
+            row0.Cells.Add(cell01);
+
+            TableCell cell02 = new TableCell();
+            cell02.Text = "Time Slot";
+            cell02.Font.Bold = true;
+            row0.Cells.Add(cell02);
+
+            TableCell cell03 = new TableCell();
+            cell03.Text = " Start Time";
+            cell03.Font.Bold = true;
+            row0.Cells.Add(cell03);
+
+            TableCell cell04 = new TableCell();
+            cell04.Text = "End Time";
+            cell04.Font.Bold = true;
+            row0.Cells.Add(cell04);
+
+            TableCell cell05 = new TableCell();
+            cell05.Text = " ";
+            cell05.Font.Bold = true;
+            row0.Cells.Add(cell05);
+
+            TableCell cell06 = new TableCell();
+            cell06.Text = " ";
+            cell06.Font.Bold = true;
+            row0.Cells.Add(cell06);
+            FacilitiesTable.Rows.Add(row0);
+
             foreach (Facility f in facilities)
             {
                 TableRow row = new TableRow();
@@ -55,6 +88,7 @@ namespace FacilityScheduler.Pages
                 Button buttonEdit = new Button();
                 buttonEdit.Text = "Edit";
                 buttonEdit.CommandArgument = f.Id.ToString();
+                buttonEdit.CssClass = "w3-button w3-black w3-padding w3-small w3-round";
                 buttonEdit.Click += Edit_Click;
                 cell5.Controls.Add(buttonEdit);
                 row.Cells.Add(cell5);
@@ -64,6 +98,7 @@ namespace FacilityScheduler.Pages
                 Button buttonDelete = new Button();
                 buttonDelete.Text = "Delete";
                 buttonDelete.CommandArgument = f.Id.ToString();
+                buttonDelete.CssClass = "w3-button w3-black w3-padding w3-small w3-round";
                 buttonDelete.Click += Delete_Click;
                 cell6.Controls.Add(buttonDelete);
                 row.Cells.Add(cell6);
