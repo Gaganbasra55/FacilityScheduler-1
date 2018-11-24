@@ -8,10 +8,17 @@ namespace FacilityScheduler.Core.Controllers
 {
     public class EmailServiceController
     {
-        static string smtpAddress = "smtp.live.com";
+        /*static string smtpAddress = "smtp.live.com";
         static int portNumber = 587;
         static bool enableSSL = true;
         static string emailFrom = "fred.bralvalex@hotmail.com";
+        static string emailPwd = ""Pit@ng01"";
+        */
+        static string smtpAddress = "smtp.gmail.com";
+        static int portNumber = 587;
+        static bool enableSSL = true;
+        static string emailFrom = "schedulerfacilities@gmail.com";
+        static string emailPwd = "f123s456";
 
 
         public static void SendEmail(String email, String code)
@@ -20,7 +27,7 @@ namespace FacilityScheduler.Core.Controllers
             MailAddress from = new MailAddress(emailFrom);
             MailMessage message = new MailMessage(from, to);
 
-            message.Subject = "Facility Scheduler Access code";
+            message.Subject = "Facility Scheduler Access code - " + code;
 
             //Look for the name of the user
             message.Body = createEmailBody(email, code);
@@ -34,7 +41,7 @@ namespace FacilityScheduler.Core.Controllers
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 EnableSsl = enableSSL,
                 UseDefaultCredentials = false,
-                Credentials = new System.Net.NetworkCredential(emailFrom, "Pit@ng01")
+                Credentials = new System.Net.NetworkCredential(emailFrom, emailPwd)
             };
 
             Console.WriteLine("Sending an email message to {0} at {1} by using the SMTP host={2}.",
