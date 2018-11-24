@@ -54,7 +54,7 @@ namespace FacilityScheduler.Core.DA
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void UpdateUser(User user)
         {
-            SqlParameter[] parameters = new SqlParameter[4];
+            SqlParameter[] parameters = new SqlParameter[6];
             parameters[0] = new SqlParameter() { ParameterName = "@firstname", SqlDbType = System.Data.SqlDbType.NChar, Value = user.FirstName };
             parameters[1] = new SqlParameter() { ParameterName = "@lastname", SqlDbType = System.Data.SqlDbType.NChar, Value = user.LastName };
             parameters[2] = new SqlParameter() { ParameterName = "@email", SqlDbType = System.Data.SqlDbType.NChar, Value = user.Email };
