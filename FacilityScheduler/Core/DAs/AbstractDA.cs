@@ -97,10 +97,58 @@ namespace FacilityScheduler.Core.DA
             SqlCommand command = new SqlCommand(
                 "Insert into " + GetTableName() + " (" + GetColumns() + ") values (" + parametersInsert + ")", connection);
             command.Parameters.AddRange(parameters);
+
             command.Transaction = transaction;
 
             command.ExecuteNonQuery();
 
+        }
+
+        public void UpdateUsingTransaction(SqlParameter[] parameters, int id)
+        {
+            string par;
+            string[] columns = GetColumns().Split(',');
+            string parametersUpdate = "";
+            int count = 0;
+            foreach (SqlParameter parameter in parameters)
+            {
+                par = parameter.ParameterName;
+                parametersUpdate += columns[count] + " = " + par;
+                if (count < parameters.Length - 1)
+                {
+                    parametersUpdate += ",";
+                }
+                count++;
+            }
+            SqlCommand command = new SqlCommand(
+                "Update " + GetTableName() + 
+                " set " + parametersUpdate + " where " + 
+                GetTableKeyName() + " = @id;", connection);
+
+            command.Parameters.AddRange(parameters);
+
+            command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+            command.Parameters["@id"].Value = id;
+
+            command.Transaction = transaction;
+
+            command.ExecuteNonQuery();
+
+        }
+
+        public void DeleteUsingTransaction(int id)
+        {            
+            SqlCommand command = new SqlCommand(
+                "Delete from " + GetTableName() + 
+                " where " + 
+                GetTableKeyName() + " = @id;", connection);
+
+            command.Parameters.Add("@id", System.Data.SqlDbType.Int);
+            command.Parameters["@id"].Value = id;
+
+            command.Transaction = transaction;
+
+            command.ExecuteNonQuery();
         }
 
         public void Insert(SqlParameter[] parameters)

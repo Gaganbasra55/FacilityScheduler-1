@@ -13,15 +13,6 @@ namespace FacilityScheduler.Pages {
     public partial class Facilities {
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// TextBoxSearchFacility control.
         /// </summary>
         /// <remarks>
@@ -31,39 +22,48 @@ namespace FacilityScheduler.Pages {
         protected global::System.Web.UI.WebControls.TextBox TextBoxSearchFacility;
         
         /// <summary>
-        /// RequiredFieldValidatorSearchFacility control.
+        /// SearchButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSearchFacility;
+        protected global::System.Web.UI.WebControls.Button SearchButton;
         
         /// <summary>
-        /// Button1 control.
+        /// tableFacilities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableFacilities;
         
         /// <summary>
-        /// facilityTable control.
+        /// FacilitiesTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table facilityTable;
+        protected global::System.Web.UI.WebControls.Table FacilitiesTable;
         
         /// <summary>
-        /// addFacility control.
+        /// NoFacilityElements control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addFacility;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NoFacilityElements;
+        
+        /// <summary>
+        /// AddFacility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddFacility;
     }
 }

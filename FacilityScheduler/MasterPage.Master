@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" runat="server" media="screen" href="/Style/StyleSheet.css" />
 	<style>
 		body, h1, h2, h3, h4, h5, h6 {
 			font-family: "Raleway", Arial, Helvetica, sans-serif
@@ -29,8 +30,11 @@
 				<hr>
 			</div>
 		</div>
-
-		<div class="w3-center">
+            <div id="menu" runat="server" class="w3-right w3-padding">
+                <asp:LinkButton ID="LinkMenuAccount" runat="server" Text="My Account" OnClick="Menu_Account_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="LinkMenuLogout" runat="server" Text="Logout" OnClick="Menu_Logout_Click" ValidationGroup="logout" />
+            </div>
+		<div class="w3-bar w3-white w3-center w3-medium">
 			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 			</asp:ContentPlaceHolder>
 		</div>

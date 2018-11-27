@@ -2,52 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="divFacilities">
-    <p>Welcome to Facility Management Page</p>
-        <asp:Label ID="Label1" runat="server" Text="Search a facility"></asp:Label>
-        &nbsp;&nbsp;<asp:TextBox ID="TextBoxSearchFacility" runat="server"></asp:TextBox>&nbsp;&nbsp;
-        <asp:RequiredFieldValidator ID="RequiredFieldValidatorSearchFacility" runat="server" ErrorMessage="Fred Help us!!!" ControlToValidate="textboxSearchFacility" ForeColor="Red"></asp:RequiredFieldValidator> 
-         
-        <asp:Button ID="Button1" runat="server" Text="Button" />
-         
-         
-    <asp:table id="facilityTable" runat="server" BackColor="#99FF66" BorderColor="#000066" BorderStyle="Ridge" ForeColor="#333300" GridLines="Horizontal" HorizontalAlign="Justify" Width="100%">
-    <asp:TableRow >
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
+    <div id="w3-center">
+        <h5>Search a facility
+        <asp:TextBox ID="TextBoxSearchFacility" runat="server" ValidationGroup="searchGroup" CssClass="w3-round w3-margin-left"></asp:TextBox>&nbsp;&nbsp;
+        <asp:Button ID="SearchButton" runat="server" Text="Search" ValidationGroup="searchGroup" OnClick="SearchButton_Click" CssClass="w3-button w3-black w3-padding w3-round w3-medium" />
+        </h5>
+        <div id="tableFacilities" runat="server" CssClass="w3-center">
+            <p>
+                <asp:table id="FacilitiesTable" runat="server" GridLines="Horizontal" HorizontalAlign="Center" Width="75%" CssClass="w3-table w3-centered w3-bordered w3-hoverable w3-text-black w3-white w3-round-large">
+                   
+                </asp:table>
+            </p>
+        </div>
+        <div id="NoFacilityElements" runat="server">
+            <h5>There are no Facilities!</h5>
+        </div>
 
-    <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-        <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-        <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-        <asp:TableRow>
-        <asp:TableCell>Code</asp:TableCell>
-        <asp:TableCell>Name of Facility</asp:TableCell>
-        <asp:TableCell>Delete</asp:TableCell>
-        <Asp:TableCell>Opinio</Asp:TableCell>
-    </asp:TableRow>
-    
-    </asp:table>
-
-	<asp:Button ID="addFacility" runat="server" OnClick="addFacility_Click" Text="Add Facility" CssClass="textBox"/>
-    
+    <p>
+	    <asp:Button ID="AddFacility" runat="server" OnClick="addFacility_Click"  ValidationGroup="addGroup" Text="Add Facility" CssClass="w3-button w3-black w3-padding w3-round"/>
+    </p>
   <%--
         A gridview if need   
           --%>

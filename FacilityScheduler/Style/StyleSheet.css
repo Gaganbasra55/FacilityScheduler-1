@@ -113,7 +113,7 @@ nav a:hover {
 
 /* unvisited link */
 a:link {
-    color: #008080;
+    color: #69A84F;
     text-decoration: none;
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
@@ -123,7 +123,7 @@ a:hover {
     color: #f3f3f3;
     border: 1px solid #e7e7e7;
     text-decoration: none;
-    background-color: #008080;
+    background-color: #69A84F;
 }
 /* visited link */
 a:visited {

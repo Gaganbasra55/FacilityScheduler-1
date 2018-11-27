@@ -51,6 +51,20 @@ namespace FacilityScheduler.Core.DA
             InsertUsingTransaction(parameters);
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void UpdateUser(User user)
+        {
+            SqlParameter[] parameters = new SqlParameter[6];
+            parameters[0] = new SqlParameter() { ParameterName = "@firstname", SqlDbType = System.Data.SqlDbType.NChar, Value = user.FirstName };
+            parameters[1] = new SqlParameter() { ParameterName = "@lastname", SqlDbType = System.Data.SqlDbType.NChar, Value = user.LastName };
+            parameters[2] = new SqlParameter() { ParameterName = "@email", SqlDbType = System.Data.SqlDbType.NChar, Value = user.Email };
+            parameters[3] = new SqlParameter() { ParameterName = "@category", SqlDbType = System.Data.SqlDbType.NChar, Value = user.category };
+            parameters[4] = new SqlParameter() { ParameterName = "@password", SqlDbType = System.Data.SqlDbType.NChar, Value = user.Password };
+            parameters[5] = new SqlParameter() { ParameterName = "@admin_verified", SqlDbType = System.Data.SqlDbType.Bit, Value = user.Verified };
+
+            UpdateUsingTransaction(parameters, user.Id);
+        }
+
         public User RecoverUser(string email, string password)
         {
             SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
@@ -59,6 +73,27 @@ namespace FacilityScheduler.Core.DA
             command.Parameters["@email"].Value = email;
             command.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
             command.Parameters["@password"].Value = password;
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            User account = null;
+            if (reader.Read())
+            {
+                return new User((int)reader["user_id"], (string)reader["email"], (string)reader["password"], (string)reader["firstname"],
+                (string)reader["lastname"], User.ConvertCategory((string)reader["category"]), (bool)reader["admin_verified"]);
+            }
+
+            reader.Close();
+            connection.Close();
+            return account;
+        }
+
+        public User RecoverUser(string email)
+        {
+            SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
+            SqlCommand command = new SqlCommand("select * from [dbo].[Users] where email = @email;", connection);
+            command.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
+            command.Parameters["@email"].Value = email;
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
 
@@ -132,8 +167,8 @@ namespace FacilityScheduler.Core.DA
 
         public override Object CreateObject(SqlDataReader reader)
         {
-            return new User((int)reader["user_id"], (string)reader["firstname"], 
-                (string)reader["lastname"], (string)reader["email"], 
+            return new User((int)reader["user_id"], (string)reader["email"], 
+                (string)reader["firstname"], (string)reader["lastname"], 
                 (string)reader["password"], User.ConvertCategory((string)reader["category"]), (bool)reader["admin_verified"]);
         }
     }

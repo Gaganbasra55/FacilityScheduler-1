@@ -7,163 +7,154 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacilityScheduler.Pages.Account {
+namespace FacilityScheduler.Pages {
     
     
-    public partial class Register {
+    public partial class ManageFacilities {
         
         /// <summary>
-        /// Registration control.
+        /// divFacilitiesSecondPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Registration;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFacilitiesSecondPage;
         
         /// <summary>
-        /// Account control.
+        /// add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Account;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl add;
         
         /// <summary>
-        /// CustomValidatorEmailExists control.
+        /// edit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorEmailExists;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl edit;
         
         /// <summary>
-        /// RequiredFieldValidatorEmail control.
+        /// CustomValidatorTimes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorEmail;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorTimes;
         
         /// <summary>
-        /// RegularExpressionValidatorEmail control.
+        /// RequiredFieldValidatorFacilityName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFacilityName;
         
         /// <summary>
-        /// textboxEmail control.
+        /// textboxFacityName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxEmail;
+        protected global::System.Web.UI.WebControls.TextBox textboxFacityName;
         
         /// <summary>
-        /// RequiredFieldValidatorFirstName control.
+        /// RequiredFieldValidatorFacilitySlot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFirstName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFacilitySlot;
         
         /// <summary>
-        /// textboxFirstName control.
+        /// DropDownListTimeSlot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxFirstName;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTimeSlot;
         
         /// <summary>
-        /// RequiredFieldValidatorLastName control.
+        /// DropDownListStartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorLastName;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListStartTime;
         
         /// <summary>
-        /// textboxLastName control.
+        /// DropDownListStartMinutes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxLastName;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListStartMinutes;
         
         /// <summary>
-        /// RequiredFieldValidatorPassword control.
+        /// DropDownListStartPeriod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPassword;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListStartPeriod;
         
         /// <summary>
-        /// textboxPassword control.
+        /// DropDownListEndTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxPassword;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEndTime;
         
         /// <summary>
-        /// CompareValidatorPassword control.
+        /// DropDownListEndMinutes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorPassword;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEndMinutes;
         
         /// <summary>
-        /// RequiredFieldValidatorRepassword control.
+        /// DropDownListEndDayPeriod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorRepassword;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEndDayPeriod;
         
         /// <summary>
-        /// textboxRepassword control.
+        /// buttonCreateFacility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxRepassword;
+        protected global::System.Web.UI.WebControls.Button buttonCreateFacility;
         
         /// <summary>
-        /// buttonRegister control.
+        /// buttonUpdateFacility control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonRegister;
-        
-        /// <summary>
-        /// buttonSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonSave;
+        protected global::System.Web.UI.WebControls.Button buttonUpdateFacility;
         
         /// <summary>
         /// buttonCancel control.
@@ -175,30 +166,12 @@ namespace FacilityScheduler.Pages.Account {
         protected global::System.Web.UI.WebControls.Button buttonCancel;
         
         /// <summary>
-        /// HiddenFieldId control.
+        /// HiddenFieldFacilityId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldId;
-        
-        /// <summary>
-        /// HiddenFieldType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldType;
-        
-        /// <summary>
-        /// HiddenFieldVerified control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldVerified;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldFacilityId;
     }
 }
