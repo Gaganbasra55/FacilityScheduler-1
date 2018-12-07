@@ -24,7 +24,15 @@ namespace FacilityScheduler.Pages
         private void LoadTable (String search)
         {
             //string search = TextBoxSearchFacility.Text;
-            List<Facility> facilities = FacilityController.GetInstance().SearchFacility(search);
+            List<Facility> facilities;
+            if (System.Configuration.ConfigurationManager.AppSettings["AUTHENTICATION_MODE"].Equals("ENABLED"))
+            {
+                facilities = FacilityController.GetInstance().SearchFacility(search);
+
+            } else
+            {
+                facilities = new List<Facility>();
+            }
 
             //show or not the table
             tableFacilities.Visible = facilities.Count > 0;

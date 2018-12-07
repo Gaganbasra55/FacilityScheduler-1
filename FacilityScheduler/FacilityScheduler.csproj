@@ -78,6 +78,12 @@
     <Content Include="Pages\Account\ForgotPassword.aspx" />
     <Content Include="Pages\Account\Login.aspx" />
     <Content Include="Pages\Account\Register.aspx" />
+    <Content Include="Pages\Account\Search User Account Page.aspx" />
+    <Content Include="Pages\Account\Search User Bookings Page.aspx" />
+    <Content Include="Pages\Bookings\Cancel Booking.aspx" />
+    <Content Include="Pages\Bookings\Search Booking.aspx" />
+    <Content Include="Pages\Bookings\Edit Booking.aspx" />
+    <Content Include="Pages\Bookings\Booking Page.aspx" />
     <Content Include="Pages\Branches.aspx" />
     <Content Include="Pages\Contactus.aspx" />
     <Content Include="Pages\Dashboard.aspx" />
@@ -127,6 +133,48 @@
     </Compile>
     <Compile Include="Pages\Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\Search User Account Page.aspx.cs">
+      <DependentUpon>Search User Account Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\Search User Account Page.aspx.designer.cs">
+      <DependentUpon>Search User Account Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\Search User Bookings Page.aspx.cs">
+      <DependentUpon>Search User Bookings Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\Search User Bookings Page.aspx.designer.cs">
+      <DependentUpon>Search User Bookings Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bookings\Cancel Booking.aspx.cs">
+      <DependentUpon>Cancel Booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bookings\Cancel Booking.aspx.designer.cs">
+      <DependentUpon>Cancel Booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bookings\Search Booking.aspx.cs">
+      <DependentUpon>Search Booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bookings\Search Booking.aspx.designer.cs">
+      <DependentUpon>Search Booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bookings\Edit Booking.aspx.cs">
+      <DependentUpon>Edit Booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bookings\Edit Booking.aspx.designer.cs">
+      <DependentUpon>Edit Booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bookings\Booking Page.aspx.cs">
+      <DependentUpon>Booking Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bookings\Booking Page.aspx.designer.cs">
+      <DependentUpon>Booking Page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Branches.aspx.cs">
       <DependentUpon>Branches.aspx</DependentUpon>

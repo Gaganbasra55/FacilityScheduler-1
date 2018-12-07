@@ -7,10 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FacilityScheduler.Pages {
+namespace FacilityScheduler.Pages.Bookings {
     
     
-    public partial class FacilitiesSecond {
+    public partial class Booking_Page {
+        
+        /// <summary>
+        /// textboxBookingId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textboxBookingId;
+        
+        /// <summary>
+        /// RequiredFieldBookingId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldBookingId;
         
         /// <summary>
         /// textboxFacilityId control.
@@ -31,84 +49,84 @@ namespace FacilityScheduler.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFacilityId;
         
         /// <summary>
-        /// textboxFacityName control.
+        /// textboxUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxFacityName;
+        protected global::System.Web.UI.WebControls.TextBox textboxUserId;
         
         /// <summary>
-        /// RequiredFieldValidatorFacilityName control.
+        /// RequiredFieldUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFacilityName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldUserId;
         
         /// <summary>
-        /// textboxTimeSlotLength control.
+        /// textboxDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxTimeSlotLength;
+        protected global::System.Web.UI.WebControls.TextBox textboxDate;
         
         /// <summary>
-        /// RequiredFieldValidatorTimeSlotLength control.
+        /// RequiredFieldValidatorDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTimeSlotLength;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDate;
         
         /// <summary>
-        /// textboxDayStartTime control.
+        /// textboxDayTimeStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxDayStartTime;
+        protected global::System.Web.UI.WebControls.TextBox textboxDayTimeStart;
         
         /// <summary>
-        /// RequiredFieldValidatorDayStartTime control.
+        /// RequiredFieldValidatorTimeStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDayStartTime;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTimeStart;
         
         /// <summary>
-        /// textboxDayEndTime control.
+        /// textboxTimeSlot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxDayEndTime;
+        protected global::System.Web.UI.WebControls.TextBox textboxTimeSlot;
         
         /// <summary>
-        /// RequiredFieldValidatorDayEndTime control.
+        /// RequiredFieldValidatorTimeSlot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDayEndTime;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTimeSlot;
         
         /// <summary>
-        /// buttonCreateFacility control.
+        /// buttonCreateBooking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonCreateFacility;
+        protected global::System.Web.UI.WebControls.Button buttonCreateBooking;
     }
 }
