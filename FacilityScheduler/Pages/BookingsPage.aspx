@@ -10,7 +10,7 @@
 	<br />
 	<br />
 
-	<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceBookings">
+<%--	<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceBookings">
 		<Columns>
 			<asp:BoundField DataField="booking_id" HeaderText="booking_id" InsertVisible="False" ReadOnly="True" SortExpression="booking_id" />
 			<asp:BoundField DataField="facility_id" HeaderText="facility_id" SortExpression="facility_id" />
@@ -19,7 +19,7 @@
 			<asp:BoundField DataField="time_start" HeaderText="time_start" SortExpression="time_start" />
 			<asp:BoundField DataField="time_slots" HeaderText="time_slots" SortExpression="time_slots" />
 		</Columns>
-	</asp:GridView>
+	</asp:GridView>--%>
 
 	<asp:SqlDataSource ID="SqlDataSourceBookings" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionStringSQL %>" SelectCommand="SELECT * FROM [Booking] WHERE ([facility_id] = @facility_id)">
 		<SelectParameters>
