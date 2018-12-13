@@ -67,7 +67,7 @@ namespace FacilityScheduler.Pages
 				facility_id = Convert.ToInt32(DropDownList.SelectedValue);
 				f_id = facility_id;
 				Session["Facility_id"] = DropDownList.SelectedValue;
-				Response.Redirect("~/Default.aspx");
+				Response.Redirect("~/BookingsPage.aspx");
 			}
 			catch (Exception)
 			{

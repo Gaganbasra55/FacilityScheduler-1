@@ -76,6 +76,7 @@
     <Content Include="Pages\Account\ForgotPassword.aspx" />
     <Content Include="Pages\Account\Login.aspx" />
     <Content Include="Pages\Account\Register.aspx" />
+    <Content Include="Pages\BookingsPage.aspx" />
     <Content Include="Pages\Branches.aspx" />
     <Content Include="Pages\Contactus.aspx" />
     <Content Include="Pages\Facilities\Facilities.aspx" />
@@ -87,6 +88,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Booking.cs" />
     <Compile Include="Core\Controllers\EmailServiceController.cs" />
     <Compile Include="Core\Controllers\FacilityController.cs" />
     <Compile Include="Core\Controllers\UserController.cs" />
@@ -124,6 +126,13 @@
     </Compile>
     <Compile Include="Pages\Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BookingsPage.aspx.cs">
+      <DependentUpon>BookingsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingsPage.aspx.designer.cs">
+      <DependentUpon>BookingsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Branches.aspx.cs">
       <DependentUpon>Branches.aspx</DependentUpon>
