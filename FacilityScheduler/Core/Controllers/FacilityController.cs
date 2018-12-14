@@ -114,5 +114,15 @@ namespace FacilityScheduler.Core.Controllers
         {
             return FacilityDA.GetInstance().SearchFacility(argument);
         }
+
+        public List<Facility> ListFacility ()
+        {
+            return FacilityDA.GetInstance().SearchFacility("");
+        }
+
+        public String GetFacilityName (int key)
+        {
+            return FacilityDA.GetInstance().GetFacilityName(key);
+        }
     }
 }

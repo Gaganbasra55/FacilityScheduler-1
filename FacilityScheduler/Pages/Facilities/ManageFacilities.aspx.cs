@@ -51,7 +51,7 @@ namespace FacilityScheduler.Pages
             if (validateTimes())
             {
                 FacilityController.GetInstance().InsertFacility(buildFacility());
-                Response.Redirect("Facilities.aspx");
+                Response.Redirect("~/Pages/Facilities/Facilities.aspx");
             }
         }
 
@@ -83,14 +83,15 @@ namespace FacilityScheduler.Pages
                 facility.Id = Int16.Parse(HiddenFieldFacilityId.Value);
                 FacilityController.GetInstance().UpdateFacility(facility);
 
-                Response.Redirect("Facilities.aspx");
+                Session.Remove("facultyId");
+                Response.Redirect("~/Pages/Facilities/Facilities.aspx");
             }
         }
 
         protected void buttonCancel_Click(object sender, EventArgs e)
         {
             Session.Remove("facultyId");
-            Response.Redirect("Facilities.aspx");
+            Response.Redirect("~/Pages/Facilities/Facilities.aspx");
         }
 
 

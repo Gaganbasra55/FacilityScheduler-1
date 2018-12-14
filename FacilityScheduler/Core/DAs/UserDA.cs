@@ -68,7 +68,7 @@ namespace FacilityScheduler.Core.DA
         public User RecoverUser(string email, string password)
         {
             SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
-            SqlCommand command = new SqlCommand("select * from [dbo].[Users] where email = @email and password=@password;", connection);
+            SqlCommand command = new SqlCommand("select * from [dbo].[Users] where rtrim(email) = rtrim(@email) and rtrim(password)= rtrim(@password);", connection);
             command.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
             command.Parameters["@email"].Value = email;
             command.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
@@ -91,7 +91,7 @@ namespace FacilityScheduler.Core.DA
         public User RecoverUser(string email)
         {
             SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
-            SqlCommand command = new SqlCommand("select * from [dbo].[Users] where email = @email;", connection);
+            SqlCommand command = new SqlCommand("select * from [dbo].[Users] where rtrim(email) = rtrim(@email);", connection);
             command.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
             command.Parameters["@email"].Value = email;
             connection.Open();
@@ -113,7 +113,7 @@ namespace FacilityScheduler.Core.DA
         {
             bool exists = false;
             SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
-            SqlCommand command = new SqlCommand("select count(*) from [dbo].[Users] where email = @email and password=@password;", connection);
+            SqlCommand command = new SqlCommand("select count(*) from [dbo].[Users] where rtrim(email) = rtrim(@email) and rtrim(password)= rtrim(@password);", connection);
             command.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
             command.Parameters["@email"].Value = user;
             command.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
@@ -128,7 +128,7 @@ namespace FacilityScheduler.Core.DA
         {
             bool exists = false;
             SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
-            SqlCommand command = new SqlCommand("select count(*) from [dbo].[Users] where LOWER(email) = LOWER(@email);", connection);
+            SqlCommand command = new SqlCommand("select count(*) from [dbo].[Users] where rtrim(LOWER(email)) = rtrim(LOWER(@email));", connection);
             command.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
             command.Parameters["@email"].Value = email;
             connection.Open();
@@ -141,7 +141,7 @@ namespace FacilityScheduler.Core.DA
         {
             bool exists = false;
             SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
-            SqlCommand command = new SqlCommand("select count(*) from [dbo].[Users] where LOWER(password) = LOWER(@password);", connection);
+            SqlCommand command = new SqlCommand("select count(*) from [dbo].[Users] where rtrim(LOWER(password)) = rtrim(LOWER(@password));", connection);
             command.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
             command.Parameters["@password"].Value = password;
             connection.Open();
@@ -167,9 +167,96 @@ namespace FacilityScheduler.Core.DA
 
         public override Object CreateObject(SqlDataReader reader)
         {
-            return new User((int)reader["user_id"], (string)reader["email"], 
-                (string)reader["firstname"], (string)reader["lastname"], 
+            return new User((int)reader["user_id"], (string)reader["email"],
+                (string)reader["firstname"], (string)reader["lastname"],
                 (string)reader["password"], User.ConvertCategory((string)reader["category"]), (bool)reader["admin_verified"]);
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void DeleteUserAccount(int id)
+        {
+            DeleteUsingTransaction(id);
+        }
+
+        public List<User> SearchUserAccount(string category, bool verified, string argument)
+        {
+            List<User> list = new List<User>();
+            SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
+            string query;
+            bool validArgs = argument != null && argument.Length > 0;
+            bool validCategory = category != null && category.Length > 0;
+            if (validArgs)
+            {
+                query = "select * from " + GetTableName() + " where " +
+                    " (firstname like rtrim(@name) " +
+                    " OR lastname like rtrim(@name) " +
+                    " OR email like rtrim(@name)) ";
+            }
+            else
+            {
+                query = "select * from " + GetTableName() + " where " + 
+                    "1 = 1 ";
+
+            }
+            if (validCategory)
+            {
+                query = query +
+                " AND rtrim(category) like rtrim(@category) ";
+            }
+
+            query = query +
+            " AND admin_verified = @verified " +
+            ";";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            if (validArgs)
+            {
+                command.Parameters.Add("@name", System.Data.SqlDbType.NChar);
+                command.Parameters["@name"].Value = "%" + argument + "%";
+            }
+
+            if (validCategory)
+            {
+                command.Parameters.Add("@category", System.Data.SqlDbType.NChar);
+                command.Parameters["@category"].Value = "%" + category + "%";
+            }
+
+            command.Parameters.Add("@verified", System.Data.SqlDbType.Bit);
+            command.Parameters["@verified"].Value = verified ? 1 : 0;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                list.Add((User)CreateObject(reader));
+            }
+
+            reader.Close();
+            connection.Close();
+            return list;
+        }
+
+        public string GetUserName(int key)
+        {
+            SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
+            string query = "select firstname, lastname  from " + GetTableName() + " where user_id = @user_id;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@user_id", System.Data.SqlDbType.Int);
+            command.Parameters["@user_id"].Value = key;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            string name = "";
+            if (reader.Read())
+            {
+                name = (string)reader["firstname"] + " " + (string)reader["lastname"];
+            }
+
+            reader.Close();
+            connection.Close();
+            return name;
         }
     }
 }

@@ -2,15 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    	<br />
+	<br />
+    <div class="w3-padding w3-large w3-left-align w3-center">
+        <h5>Facility</h5>
 		<asp:DropDownList ID="DropDownList" runat="server" DataSourceID="SqlDataSourceFacilityList" DataTextField="name" DataValueField="facility_id" OnSelectedIndexChanged="DropDownList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-
+    </div>
 	<asp:SqlDataSource ID="SqlDataSourceFacilityList" runat="server" ConnectionString="<%$ ConnectionStrings:FSConnectionString %>" SelectCommand="SELECT [facility_id], [name] FROM [Facility]"></asp:SqlDataSource>
 
 	<br />
-	<br />
-	<br />
 
-<%--	<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceBookings">
+<%--	
+    
+    	<asp:SqlDataSource ID="SqlDataSourceFacilityList" runat="server" ConnectionString="<%$ ConnectionStrings:FSConnectionString %>" SelectCommand="SELECT f.[facility_id], [name] FROM [Facility] f, [FacilityAccess] fa WHERE f.facility_id = fa.facility_id AND RTRIM(role) = RTRIM(@role);">
+        <selectparameters>
+		    <asp:sessionparameter name="role" sessionfield="role" type="String" />
+	    </selectparameters>
+    </asp:SqlDataSource>
+    
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceBookings">
 		<Columns>
 			<asp:BoundField DataField="booking_id" HeaderText="booking_id" InsertVisible="False" ReadOnly="True" SortExpression="booking_id" />
 			<asp:BoundField DataField="facility_id" HeaderText="facility_id" SortExpression="facility_id" />

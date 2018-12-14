@@ -61,6 +61,9 @@ namespace FacilityScheduler.Pages.Account
                     Response.Cookies.Add(userCookie);
 
                     HttpCookie c0 = new HttpCookie("UserCategory", "" + user.category);
+
+                    Session["role"] = user.category.ToString();
+
                     c0.Expires = DateTime.Now.AddMinutes(30);
                     Response.Cookies.Add(c0);
 
@@ -70,15 +73,16 @@ namespace FacilityScheduler.Pages.Account
                     c1.Expires = DateTime.Now.AddMinutes(30);
                     Response.Cookies.Add(c1);
 
+                    Response.Redirect("~/Pages/Account/Login.aspx");
+                    /*
                     if (user.IsAdmin())
                     {
-                        Response.Redirect("~/Pages/Facilities/Facilities.aspx");
                     }
                     else if (user.IsStudent())
                     {
                         //suposed to be the dashboard
                         Response.Redirect("~/Pages/Management.aspx");
-                    }
+                    }*/
                 }
             }
         }

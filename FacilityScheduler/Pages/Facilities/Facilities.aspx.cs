@@ -17,7 +17,7 @@ namespace FacilityScheduler.Pages
         }
         protected void addFacility_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ManageFacilities.aspx");
+            Response.Redirect("~/Pages/Facilities/ManageFacilities.aspx");
         }
 
 
@@ -89,6 +89,7 @@ namespace FacilityScheduler.Pages
                 buttonEdit.Text = "Edit";
                 buttonEdit.CommandArgument = f.Id.ToString();
                 buttonEdit.CssClass = "w3-button w3-black w3-padding w3-small w3-round";
+                buttonEdit.Attributes.Add("autopostback", "false");
                 buttonEdit.Click += Edit_Click;
                 cell5.Controls.Add(buttonEdit);
                 row.Cells.Add(cell5);
@@ -99,6 +100,7 @@ namespace FacilityScheduler.Pages
                 buttonDelete.Text = "Delete";
                 buttonDelete.CommandArgument = f.Id.ToString();
                 buttonDelete.CssClass = "w3-button w3-black w3-padding w3-small w3-round";
+                buttonDelete.Attributes.Add("autopostback", "false");
                 buttonDelete.Click += Delete_Click;
                 cell6.Controls.Add(buttonDelete);
                 row.Cells.Add(cell6);
@@ -111,14 +113,14 @@ namespace FacilityScheduler.Pages
         {
             string id = ((Button)sender).CommandArgument;
             FacilityController.GetInstance().DeleteFacility(Int16.Parse(id));
-            Response.Redirect("Facilities.aspx");
+            Response.Redirect("~/Pages/Facilities/Facilities.aspx");
         }
 
         private void Edit_Click(object sender, System.EventArgs args)
         {
             string id = ((Button)sender).CommandArgument;
             Session["facultyId"] = id;
-            Response.Redirect("ManageFacilities.aspx");
+            Response.Redirect("~/Pages/Facilities/ManageFacilities.aspx");
         }
 
 

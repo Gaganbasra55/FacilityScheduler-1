@@ -11,7 +11,7 @@ namespace FacilityScheduler.Core.Models
 
         public static Category ConvertCategory(string category)
         {
-            switch (category)
+            switch (category.Trim())
             {
                 case "Admin":
                     return Category.Admin;
@@ -19,6 +19,8 @@ namespace FacilityScheduler.Core.Models
                     return Category.Moderator;
                 case "Faculty":
                     return Category.Faculty;
+                case "Staff":
+                    return Category.Staff;
                 case "Student":
                     return Category.Student;
                 default:

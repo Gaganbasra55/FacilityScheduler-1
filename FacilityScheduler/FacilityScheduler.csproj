@@ -73,27 +73,45 @@
     <Content Include="images\03Youtube.gif" />
     <Content Include="images\04ImageBanner.PNG" />
     <Content Include="images\logo_fs.png" />
+    <Content Include="Pages\Access\AccessManagement.aspx" />
     <Content Include="Pages\Account\ForgotPassword.aspx" />
     <Content Include="Pages\Account\Login.aspx" />
     <Content Include="Pages\Account\Register.aspx" />
     <Content Include="Pages\BookingsPage.aspx" />
+    <Content Include="Pages\Bookings\ValidateBooking.aspx" />
+    <Content Include="Pages\Bookings\SearchBooking.aspx" />
     <Content Include="Pages\Branches.aspx" />
     <Content Include="Pages\Contactus.aspx" />
+    <Content Include="Pages\Dashboard\FacultyDashboard.aspx" />
+    <Content Include="Pages\Dashboard\ModeratorDashboard.aspx" />
+    <Content Include="Pages\Dashboard\StaffDashboard.aspx" />
+    <Content Include="Pages\Dashboard\StudentDashboard.aspx" />
+    <Content Include="Pages\Dashboard\AdminDashboard.aspx" />
     <Content Include="Pages\Facilities\Facilities.aspx" />
     <Content Include="Pages\Facilities\ManageFacilities.aspx" />
     <Content Include="Pages\Facilities\FacilitiesSecond.aspx" />
     <Content Include="Pages\Error.aspx" />
     <Content Include="Pages\Management.aspx" />
+    <Content Include="Pages\UserAccount\ManageUserAccount.aspx" />
+    <Content Include="Pages\UserAccount\UserAccount.aspx" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Booking.cs" />
+    <Compile Include="Core\Controllers\AccessController.cs" />
+    <Compile Include="Core\Controllers\AccessCodeController.cs" />
+    <Compile Include="Core\DAs\AccessDA.cs" />
+    <Compile Include="Core\DAs\AccessCodeDA.cs" />
+    <Compile Include="Core\Models\Access.cs" />
+    <Compile Include="Core\Models\AccessCode.cs" />
+    <Compile Include="Core\Models\Booking.cs" />
     <Compile Include="Core\Controllers\EmailServiceController.cs" />
+    <Compile Include="Core\Controllers\BookingController.cs" />
     <Compile Include="Core\Controllers\FacilityController.cs" />
     <Compile Include="Core\Controllers\UserController.cs" />
     <Compile Include="Core\Controllers\AuthenticationController.cs" />
     <Compile Include="Core\DAs\AbstractDA.cs" />
+    <Compile Include="Core\DAs\BookingDA.cs" />
     <Compile Include="Core\DAs\FacilityDA.cs" />
     <Compile Include="Core\DAs\UserDA.cs" />
     <Compile Include="Core\Models\Facility.cs" />
@@ -105,6 +123,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Access\AccessManagement.aspx.cs">
+      <DependentUpon>AccessManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Access\AccessManagement.aspx.designer.cs">
+      <DependentUpon>AccessManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Account\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -134,6 +159,20 @@
     <Compile Include="Pages\BookingsPage.aspx.designer.cs">
       <DependentUpon>BookingsPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Bookings\ValidateBooking.aspx.cs">
+      <DependentUpon>ValidateBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bookings\ValidateBooking.aspx.designer.cs">
+      <DependentUpon>ValidateBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bookings\SearchBooking.aspx.cs">
+      <DependentUpon>SearchBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bookings\SearchBooking.aspx.designer.cs">
+      <DependentUpon>SearchBooking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Branches.aspx.cs">
       <DependentUpon>Branches.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +186,41 @@
     </Compile>
     <Compile Include="Pages\Contactus.aspx.designer.cs">
       <DependentUpon>Contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard\FacultyDashboard.aspx.cs">
+      <DependentUpon>FacultyDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard\FacultyDashboard.aspx.designer.cs">
+      <DependentUpon>FacultyDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard\ModeratorDashboard.aspx.cs">
+      <DependentUpon>ModeratorDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard\ModeratorDashboard.aspx.designer.cs">
+      <DependentUpon>ModeratorDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard\StaffDashboard.aspx.cs">
+      <DependentUpon>StaffDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard\StaffDashboard.aspx.designer.cs">
+      <DependentUpon>StaffDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard\StudentDashboard.aspx.cs">
+      <DependentUpon>StudentDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard\StudentDashboard.aspx.designer.cs">
+      <DependentUpon>StudentDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Dashboard\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Facilities\Facilities.aspx.cs">
       <DependentUpon>Facilities.aspx</DependentUpon>
@@ -183,6 +257,20 @@
     <Compile Include="Pages\Management.aspx.designer.cs">
       <DependentUpon>Management.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserAccount\ManageUserAccount.aspx.cs">
+      <DependentUpon>ManageUserAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserAccount\ManageUserAccount.aspx.designer.cs">
+      <DependentUpon>ManageUserAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserAccount\UserAccount.aspx.cs">
+      <DependentUpon>UserAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserAccount\UserAccount.aspx.designer.cs">
+      <DependentUpon>UserAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +283,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

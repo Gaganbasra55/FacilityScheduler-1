@@ -73,7 +73,7 @@ namespace FacilityScheduler.Core.DA
             bool validArgs = argument != null && argument.Length > 0;
             if (validArgs)
             {
-                query = "select * from " + GetTableName() + " where name like @name;";
+                query = "select * from " + GetTableName() + " where name like rtrim(@name);";
             } else
             {
                 query = "select * from " + GetTableName() + ";";
@@ -97,6 +97,24 @@ namespace FacilityScheduler.Core.DA
             connection.Close();
             return list;
         }
+
+        public string GetFacilityName(int key)
+        {
+            SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringSQL"].ConnectionString);
+            string query = "select name from " + GetTableName() + " where facility_id = @facility_id;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@facility_id", System.Data.SqlDbType.Int);
+            command.Parameters["@facility_id"].Value = key;
+
+            connection.Open();
+
+            string name = (string)command.ExecuteScalar();
+
+            connection.Close();
+            return name;
+        }
+
 
         public override string GetTableName()
         {

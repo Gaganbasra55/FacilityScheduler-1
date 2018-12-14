@@ -40,22 +40,112 @@ namespace FacilityScheduler {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu;
         
         /// <summary>
-        /// LinkMenuAccount control.
+        /// Menu_LinkButtonAdminDashboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkMenuAccount;
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonAdminDashboard;
         
         /// <summary>
-        /// LinkMenuLogout control.
+        /// Menu_LinkButtonModeratorDashboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkMenuLogout;
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonModeratorDashboard;
+        
+        /// <summary>
+        /// Menu_LinkButtonStaffDashboard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonStaffDashboard;
+        
+        /// <summary>
+        /// Menu_LinkButtonFacultyDashboard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonFacultyDashboard;
+        
+        /// <summary>
+        /// Menu_LinkButtonStudanteDashboard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonStudanteDashboard;
+        
+        /// <summary>
+        /// Menu_LinkButtonFacilityAccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonFacilityAccess;
+        
+        /// <summary>
+        /// Menu_LinkButtonBookings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonBookings;
+        
+        /// <summary>
+        /// Menu_LinkButtonBooking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonBooking;
+        
+        /// <summary>
+        /// Menu_LinkButtonFacility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonFacility;
+        
+        /// <summary>
+        /// Menu_LinkButtonUserAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkButtonUserAccount;
+        
+        /// <summary>
+        /// Menu_LinkMenuAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkMenuAccount;
+        
+        /// <summary>
+        /// Menu_LinkMenuLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Menu_LinkMenuLogout;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

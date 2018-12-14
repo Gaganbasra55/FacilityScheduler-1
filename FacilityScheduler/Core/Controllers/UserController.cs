@@ -1,11 +1,11 @@
-﻿using System;
+﻿using FacilityScheduler.Core.DA;
+using FacilityScheduler.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
-using FacilityScheduler.Core.DA;
-using FacilityScheduler.Core.Models;
 
 namespace FacilityScheduler.Core.Controller
 {
@@ -64,7 +64,7 @@ namespace FacilityScheduler.Core.Controller
             SqlTransaction transaction = UserDA.BeginTransaction();
             try
             {
-                //update the facility
+                //update the user
                 UserDA.UpdateUser(user);
                 transaction.Commit();
             }
@@ -80,6 +80,63 @@ namespace FacilityScheduler.Core.Controller
                 UserDA.closeConnection();
             }
         }
+        /*
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void UpdateUserAccount(User user)
+        {
+            UserDA.openConnection();
+            SqlTransaction transaction = UserDA.BeginTransaction();
+            try
+            {
+                //update the user
+                UserDA.UpdateUser(user);
+                transaction.Commit();
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.Write(e.StackTrace);
+                System.Diagnostics.Debug.Write(e.StackTrace);
+                System.Diagnostics.Trace.Write(e.StackTrace);
+            }
+            finally
+            {
+                UserDA.closeConnection();
+            }
+        }*/
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void DeleteUser(int id)
+        {
+            UserDA.openConnection();
+            SqlTransaction transaction = UserDA.BeginTransaction();
+            try
+            {
+                //delete the user
+                UserDA.DeleteUserAccount(id);
+                transaction.Commit();
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.Write(e.StackTrace);
+                System.Diagnostics.Debug.Write(e.StackTrace);
+                System.Diagnostics.Trace.Write(e.StackTrace);
+            }
+            finally
+            {
+                UserDA.closeConnection();
+            }
+        }
+
+        public List<User> SearchUserAccount(String category, bool verified, string argument)
+        {
+            return UserDA.GetInstance().SearchUserAccount(category, verified, argument);
+        }
+
+        public string GetUserName(int key)
+        {
+            return UserDA.GetInstance().GetUserName(key);
+        }
     }
 }

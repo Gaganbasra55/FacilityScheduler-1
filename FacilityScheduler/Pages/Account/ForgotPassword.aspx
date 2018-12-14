@@ -28,7 +28,7 @@
                 <asp:TextBox ID="textCode" runat="server"></asp:TextBox> 
             </p>
             <p>
-                <asp:Button ID="buttonValidateCoce" runat="server" OnClick="buttonCheckCode_Click" Text="Submit" CssClass="w3-button w3-black w3-padding w3-round"/>
+                <asp:Button ID="buttonValidateCode" runat="server" OnClick="buttonCheckCode_Click" Text="Submit" CssClass="w3-button w3-black w3-padding w3-round"/>
                 <asp:Button ID="buttonResend" runat="server" OnClick="buttonResendCode_Click" Text="Re-send code" CausesValidation="false" CssClass="w3-button w3-black w3-padding w3-round"/>                
             </p>
         </div>

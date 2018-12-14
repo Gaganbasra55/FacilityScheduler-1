@@ -31,8 +31,20 @@
 			</div>
 		</div>
             <div id="menu" runat="server" class="w3-right w3-padding">
-                <asp:LinkButton ID="LinkMenuAccount" runat="server" Text="My Account" OnClick="Menu_Account_Click" ValidationGroup="account" />
-                <asp:LinkButton ID="LinkMenuLogout" runat="server" Text="Logout" OnClick="Menu_Logout_Click" ValidationGroup="logout" />
+                <asp:LinkButton ID="Menu_LinkButtonAdminDashboard" runat="server" Text="Home" OnClick="Menu_Admin_Dashboard_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkButtonModeratorDashboard" runat="server" Text="Home" OnClick="Menu_Moderator_Dashboard_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkButtonStaffDashboard" runat="server" Text="Home" OnClick="Menu_Staff_Dashboard_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkButtonFacultyDashboard" runat="server" Text="Home" OnClick="Menu_Faculty_Dashboard_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkButtonStudanteDashboard" runat="server" Text="Home" OnClick="Menu_Student_Dashboard_Click" ValidationGroup="account" />
+                
+                <asp:LinkButton ID="Menu_LinkButtonFacilityAccess" runat="server" Text="Facility Access" OnClick="Menu_FacilityAccess_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkButtonBookings" runat="server" Text="Bookings" OnClick="Menu_Bookings_Click" ValidationGroup="account" />
+
+                <asp:LinkButton ID="Menu_LinkButtonBooking" runat="server" Text="Booking" OnClick="Menu_Booking_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkButtonFacility" runat="server" Text="Manage Facility" OnClick="Menu_Facility_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkButtonUserAccount" runat="server" Text="Manage User Account" OnClick="Menu_User_Account_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkMenuAccount" runat="server" Text="My Account" OnClick="Menu_Account_Click" ValidationGroup="account" />
+                <asp:LinkButton ID="Menu_LinkMenuLogout" runat="server" Text="Logout" OnClick="Menu_Logout_Click" ValidationGroup="logout" />
             </div>
 		<div class="w3-bar w3-white w3-center w3-medium">
 			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

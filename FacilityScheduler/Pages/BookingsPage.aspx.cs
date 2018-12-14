@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacilityScheduler.Core.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -19,8 +20,6 @@ namespace FacilityScheduler.Pages
 		List<DateTime> days;
 
 		List<TimeSpan> timeSlots;
-
-		int user_id_session = 2;
 
 		public int f_id;
 
@@ -67,7 +66,7 @@ namespace FacilityScheduler.Pages
 				facility_id = Convert.ToInt32(DropDownList.SelectedValue);
 				f_id = facility_id;
 				Session["Facility_id"] = DropDownList.SelectedValue;
-				Response.Redirect("~/BookingsPage.aspx");
+				Response.Redirect("~/Pages/BookingsPage.aspx");
 			}
 			catch (Exception)
 			{
@@ -80,7 +79,16 @@ namespace FacilityScheduler.Pages
 
 		private void generateTable(int facility_id)
 		{
-			try
+
+            HttpCookie userCookie;
+            int user_id_session = -1;
+            userCookie = Request.Cookies["UserID"];
+            if (userCookie != null)
+            {
+                user_id_session = Convert.ToInt32(userCookie.Value);
+            }
+
+            try
 			{
 				Session["TableGeneratedFor"] = facility_id.ToString();
 
@@ -330,7 +338,15 @@ namespace FacilityScheduler.Pages
 
 			int facility_id = Convert.ToInt32(DropDownList.SelectedValue);
 
-			booking_cmd.Parameters.AddWithValue("@facility_id", facility_id);
+            HttpCookie userCookie;
+            int user_id_session = -1;
+            userCookie = Request.Cookies["UserID"];
+            if (userCookie != null)
+            {
+                user_id_session = Convert.ToInt32(userCookie.Value);
+            }
+
+            booking_cmd.Parameters.AddWithValue("@facility_id", facility_id);
 			booking_cmd.Parameters.AddWithValue("@date", date);
 			booking_cmd.Parameters.AddWithValue("@user_id", user_id_session);
 			booking_cmd.Parameters.AddWithValue("@time_start", timeslot);
@@ -339,7 +355,11 @@ namespace FacilityScheduler.Pages
 			try
 			{
 				int id = Convert.ToInt32(booking_cmd.ExecuteScalar());
-				Response.Write("<script>alert('Booking Successful');</script>");
+
+                AccessCodeController.GetInstance().GenerateCodeAndSend(user_id_session, id);
+
+
+                Response.Write("<script>alert('Booking Successful');</script>");
 				tableContent.Rows[row + 1].Cells[col + 1].BgColor = "Yellow";
 				tableContent.Rows[row + 1].Cells[col + 1].Controls.Clear();
 
